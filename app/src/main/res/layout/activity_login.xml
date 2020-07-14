@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:orientation="vertical"
+    tools:context="com.example.View.MainActivity">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/dp200"
+        android:layout_height="@dimen/dp200"
+        android:background="@drawable/logo_gdu"
+        app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></de.hdodenhof.circleimageview.CircleImageView>
+
+    <Button
+        android:id="@+id/buttonDangKy"
+        android:layout_width="@dimen/dp230"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/button_border2"
+        android:minHeight="@dimen/dp50"
+        android:padding="@dimen/dp15"
+        android:text="Đăng Ký"
+        android:textSize="@dimen/dp20"
+        app:layout_constraintBottom_toTopOf="@+id/textViewQuenMK"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDongY"></Button>
+
+    <EditText
+        android:id="@+id/editTextMatKhau"
+        android:layout_width="@dimen/dp300"
+        android:layout_height="@dimen/dp50"
+        android:layout_gravity="center"
+        android:background="@drawable/border"
+        android:hint="Mật Khẩu"
+        android:inputType="textPassword"
+        android:minHeight="@dimen/dp40"
+        android:paddingLeft="@dimen/dp50"
+        android:textSize="@dimen/dp20"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDongY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail"></EditText>
+
+    <EditText
+        android:id="@+id/editTextEmail"
+
+        android:layout_width="@dimen/dp300"
+        android:layout_height="@dimen/dp50"
+        android:layout_gravity="center"
+        android:background="@drawable/border"
+        android:hint="Email Của Bạn"
+        android:inputType="textEmailAddress"
+        android:minHeight="@dimen/dp40"
+        android:paddingLeft="@dimen/dp50"
+        android:textSize="@dimen/dp20"
+        app:layout_constraintBottom_toTopOf="@+id/editTextMatKhau"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon"></EditText>
+
+    <Button
+        android:id="@+id/buttonDongY"
+        android:layout_width="@dimen/dp250"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/button_border"
+        android:gravity="center"
+        android:minHeight="@dimen/dp50"
+        android:padding="@dimen/dp15"
+        android:text="Đăng Nhập"
+        android:textSize="@dimen/dp20"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDangKy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMatKhau"></Button>
+
+    <TextView
+        android:id="@+id/textViewQuenMK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/dp15"
+        android:text="Quên Mật Khẩu?"
+        android:textColor="#6500ED"
+        android:textSize="@dimen/dp15"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDangKy" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.92" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

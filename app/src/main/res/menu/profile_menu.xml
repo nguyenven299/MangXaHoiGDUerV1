@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Menu"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_more"
+        >
+    <menu>
+
+        <item
+            android:id="@+id/SuaThongTin"
+            android:icon="@drawable/ic_edit_black_24dp"
+            android:orderInCategory="100"
+            android:title="Sửa Thông Tin Cá Nhân"
+            app:showAsAction="never"></item>
+        <item
+            android:id="@+id/ThayDoiMatKhau"
+            android:icon="@drawable/ic_lock_outline_black_24dp"
+            android:orderInCategory="100"
+            android:title="Thay Đổi Mật Khẩu"
+            app:showAsAction="never"></item>
+        <item
+            android:id="@+id/DangXuat"
+            android:icon="@drawable/ic_logout_rounded"
+            android:title="Đăng Xuất"
+            app:showAsAction="never"
+            ></item>
+    </menu>
+</item>
+</menu>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageViewHinhDaiDien"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
+        app:layout_constraintEnd_toStartOf="@+id/textViewHoTen"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+
+    <TextView
+        android:id="@+id/textViewHoTen"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp35"
+        android:textColor="#2196F3"
+        android:textSize="@dimen/dp25"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewHinhDaiDien"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageViewHinhDaiDien"
+        app:layout_constraintTop_toTopOf="@+id/imageViewHinhDaiDien"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewNoiDungThongBao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp10"
+        android:scrollbars="vertical"
+        android:textColor="#000000"
+        android:textSize="@dimen/dp20"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewThongBao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewThoiGian" />
+
+    <Button
+        android:id="@+id/buttonBinhLuan"
+        android:layout_width="@dimen/dp110"
+        android:layout_height="@dimen/dp40"
+        android:layout_gravity="center"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/button_border"
+        android:text="Bình Luận"
+        android:textColor="@android:color/primary_text_light"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/buttonXoa"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewThongBao"></Button>
+
+    <Button
+        android:id="@+id/buttonXoa"
+        android:layout_width="@dimen/dp110"
+        android:layout_height="@dimen/dp40"
+        android:background="@drawable/button_border3"
+        android:text="Xóa bài"
+        android:textColor="@android:color/widget_edittext_dark"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonBinhLuan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonBinhLuan"
+        app:layout_constraintTop_toTopOf="@+id/buttonBinhLuan"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textViewThoiGian"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp25"
+        android:textColor="#9E9E9E"
+        android:textSize="@dimen/dp15"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNoiDungThongBao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageViewHinhDaiDien"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHoTen"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp5"
+
+        android:background="?attr/colorControlActivated"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBinhLuan" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1.0" />
+
+    <ImageView
+        android:id="@+id/imageViewThongBao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBinhLuan"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNoiDungThongBao"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

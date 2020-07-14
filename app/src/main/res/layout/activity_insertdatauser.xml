@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:layout_editor_absoluteY="81dp">
+
+    <com.google.android.material.appbar.AppBarLayout
+
+        android:id="@+id/Appbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99FF66"
+            android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/MenuStyle">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/icon"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"></de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:id="@+id/texticon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp25"
+                android:textColor="#000000"
+                android:textStyle="bold"></TextView>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <Button
+        android:id="@+id/buttonDongY"
+        android:layout_width="@dimen/dp150"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_border"
+        android:padding="@dimen/dp15"
+        android:text="Đồng Ý"
+        android:textColor="#f000"
+        android:textSize="@dimen/dp20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHuy"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerLopHoc"></Button>
+
+    <EditText
+        android:id="@+id/edtiTextMSSV"
+        android:layout_width="@dimen/dp300"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/border"
+        android:hint="Nhập Mã Số Sinh Viên"
+        android:inputType="text"
+        android:minHeight="@dimen/dp20"
+        android:padding="@dimen/dp10"
+        android:paddingLeft="@dimen/dp15"
+        android:textSize="@dimen/dp20"
+        android:textColor="#f000"
+        app:layout_constraintBottom_toTopOf="@+id/editTextHoTen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Appbar"></EditText>
+
+    <EditText
+        android:id="@+id/editTextHoTen"
+        android:layout_width="@dimen/dp300"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/border"
+        android:hint="Nhập Họ Tên Sinh Viên"
+        android:inputType="text"
+        android:minHeight="@dimen/dp20"
+        android:padding="@dimen/dp10"
+        android:paddingLeft="@dimen/dp15"
+        android:textColor="#f000"
+        app:layout_constraintBottom_toTopOf="@+id/edtiTextSoDienThoai"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtiTextMSSV"></EditText>
+
+    <TextView
+        android:id="@+id/textViewLopHoc"
+        android:layout_width="@dimen/dp300"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:minHeight="@dimen/dp20"
+        android:padding="@dimen/dp10"
+        android:paddingLeft="@dimen/dp15"
+        android:text="Chọn Lớp Học"
+        android:textColor="#F000"
+        android:textSize="@dimen/dp20"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerLopHoc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerNganhHoc"></TextView>
+
+    <Spinner
+        android:id="@+id/spinnerNganhHoc"
+        android:layout_width="@dimen/dp300"
+        android:layout_height="wrap_content"
+        android:contextClickable="true"
+        android:minHeight="@dimen/dp20"
+        app:layout_constraintBottom_toTopOf="@+id/textViewLopHoc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNganhHoc"></Spinner>
+
+    <TextView
+
+        android:id="@+id/textViewNganhHoc"
+        android:layout_width="@dimen/dp300"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:minHeight="@dimen/dp20"
+        android:padding="@dimen/dp10"
+        android:paddingLeft="@dimen/dp15"
+        android:text="Chọn Ngành Học"
+        android:textColor="#F000"
+        android:textSize="@dimen/dp20"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerNganhHoc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtiTextSoDienThoai"></TextView>
+
+    <EditText
+        android:id="@+id/edtiTextSoDienThoai"
+        android:layout_width="@dimen/dp300"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/border"
+        android:hint="Nhập Số Điện Thoại Sinh Viên"
+        android:inputType="text"
+        android:minHeight="@dimen/dp20"
+        android:padding="@dimen/dp10"
+        android:paddingLeft="@dimen/dp15"
+        android:textColor="#f000"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNganhHoc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextHoTen"></EditText>
+
+    <Spinner
+        android:id="@+id/spinnerLopHoc"
+        android:layout_width="@dimen/dp300"
+        android:layout_height="wrap_content"
+
+        android:contextClickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDongY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLopHoc"></Spinner>
+
+    <Button
+        android:id="@+id/buttonHuy"
+        android:layout_width="@dimen/dp150"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:background="@drawable/button_border3"
+        android:padding="@dimen/dp15"
+        android:text="Hủy Bỏ"
+        android:textColor="#f000"
+        android:textSize="@dimen/dp20"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonDongY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonDongY"
+        app:layout_constraintTop_toTopOf="@+id/buttonDongY"
+        app:layout_constraintVertical_bias="0.0"></Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

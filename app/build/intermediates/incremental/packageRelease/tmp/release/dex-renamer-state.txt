@@ -1,0 +1,7 @@
+#Mon Jun 08 13:00:46 ICT 2020
+base.0=D\:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\dex\\release\\out\\classes.dex
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=D\:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\dex\\release\\out\\classes2.dex

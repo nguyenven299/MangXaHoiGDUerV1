@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/Appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/MenuStyle">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageViewHinhDaiDien"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"></de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:id="@+id/HoTen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp25"
+                android:textColor="#fff"
+                android:textStyle="bold"></TextView>
+
+            <Button
+                android:id="@+id/buttonDangThongBao"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp30"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:background="@drawable/button_border"
+                android:visibility="gone"
+                android:paddingHorizontal="@dimen/dp10"
+                android:text="Đăng Thông Báo"
+                android:textColor="#FFF"></Button>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <FrameLayout
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/nav_view"
+        android:layout_below="@id/Appbar">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu" />
+
+
+</RelativeLayout>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5E5CB">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/HinhDaiDien"
+        android:layout_width="@dimen/dp110"
+        android:layout_height="@dimen/dp110"
+        app:layout_constraintBottom_toTopOf="@+id/iconSuaThongTin"
+        app:layout_constraintEnd_toStartOf="@+id/guideline12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline18"
+        app:layout_constraintTop_toTopOf="@+id/guideline17"
+        app:layout_constraintVertical_bias="0.431"
+        app:srcCompat="@drawable/no_person" />
+
+    <TextView
+        android:id="@+id/HoTen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#f000"
+        android:textSize="@dimen/dp25"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toBottomOf="@+id/MaSo" />
+
+    <TextView
+        android:id="@+id/Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#f000"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/EmailTitle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/EmailTitle"
+        app:layout_constraintTop_toBottomOf="@+id/EmailTitle" />
+
+    <TextView
+        android:id="@+id/MaSo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#f000"
+        app:layout_constraintBottom_toTopOf="@+id/HoTen"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.159" />
+
+    <TextView
+        android:id="@+id/EmailTitle"
+        android:layout_width="@dimen/dp150"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Email"
+        android:textColor="#f000"
+        app:layout_constraintBottom_toTopOf="@+id/Email"
+        app:layout_constraintEnd_toStartOf="@+id/guideline12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/SDTTitle"
+        android:layout_width="@dimen/dp150"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Số Điện Thoại"
+        android:textColor="#f000"
+        app:layout_constraintBottom_toTopOf="@+id/SDT"
+        app:layout_constraintEnd_toStartOf="@+id/guideline12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/SDT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#f000"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/SDTTitle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/SDTTitle"
+        app:layout_constraintTop_toBottomOf="@+id/SDTTitle" />
+
+    <TextView
+        android:id="@+id/ChuyenNganhTitle"
+        android:layout_width="@dimen/dp150"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Chuyên Ngành"
+        android:textColor="#f000"
+        app:layout_constraintBottom_toTopOf="@+id/ChuyenNganh"
+        app:layout_constraintEnd_toStartOf="@+id/guideline12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/ChuyenNganh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#f000"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/ChuyenNganhTitle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/ChuyenNganhTitle"
+        app:layout_constraintTop_toBottomOf="@+id/ChuyenNganhTitle" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp60"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/EmailTitle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toBottomOf="@+id/HoTen"
+        app:srcCompat="@drawable/email" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp60"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/SDTTitle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:srcCompat="@drawable/bookmark" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp60"
+        app:layout_constraintBottom_toTopOf="@+id/guideline13"
+        app:layout_constraintEnd_toStartOf="@+id/ChuyenNganhTitle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/phone" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.0729927" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90510947" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.87" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.22" />
+
+    <TextView
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFF"
+        android:paddingHorizontal="@dimen/dp7"
+        android:text="Đăng Xuất"
+        android:textColor="#f000"
+        android:textSize="@dimen/dp15"
+        android:textStyle="bold"
+        app:backgroundTint="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/iconDangXuat"
+        app:layout_constraintStart_toEndOf="@+id/iconDangXuat"
+        app:layout_constraintTop_toTopOf="@+id/iconDangXuat"
+        app:layout_constraintVertical_bias="0.578"
+        app:rippleColor="#33AAAAAA" />
+
+    <ImageView
+        android:id="@+id/iconDangXuat"
+        android:layout_width="@dimen/dp30"
+        android:layout_height="@dimen/dp30"
+        android:foreground="@drawable/ic_logout_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline13"
+        app:layout_constraintVertical_bias="0.368"></ImageView>
+
+    <ImageView
+        android:id="@+id/iconSuaThongTin"
+        android:layout_width="@dimen/dp30"
+        android:layout_height="@dimen/dp30"
+        app:layout_constraintBottom_toTopOf="@+id/guideline16"
+        app:layout_constraintEnd_toStartOf="@+id/iconSuaMatKhau"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline18"
+        app:layout_constraintTop_toBottomOf="@+id/HinhDaiDien"
+        app:layout_constraintVertical_bias="0.095"
+        app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+    <ImageView
+        android:id="@+id/iconSuaMatKhau"
+        android:layout_width="@dimen/dp30"
+        android:layout_height="@dimen/dp30"
+        app:layout_constraintBottom_toBottomOf="@+id/iconSuaThongTin"
+        app:layout_constraintEnd_toStartOf="@+id/guideline12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/iconSuaThongTin"
+        app:layout_constraintTop_toTopOf="@+id/iconSuaThongTin"
+        app:srcCompat="@drawable/ic_lock_outline_black_24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.29" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.01972686" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.59" />
+</androidx.constraintlayout.widget.ConstraintLayout>

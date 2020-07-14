@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_TrangChu"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Trang Chủ" />
+
+    <item
+        android:id="@+id/navigation_DanhSach"
+        android:icon="@drawable/ic_perm_contact_calendar_black_24dp"
+        android:title="Danh Sách" />
+
+    <item
+        android:id="@+id/navigation_NhanTin"
+        android:icon="@drawable/ic_chat_black_24dp"
+        android:title="Nhắn Tin" />
+
+    <item
+        android:id="@+id/navigation_TrangCaNhanh"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="Trang Cá Nhân" />
+
+</menu>

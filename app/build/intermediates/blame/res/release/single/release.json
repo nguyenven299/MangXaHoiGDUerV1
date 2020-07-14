@@ -1,0 +1,118 @@
+[
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\drawable_icons8_phone_100.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\drawable\\icons8_phone_100.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\layout_activity_insertdatauser.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\layout\\activity_insertdatauser.xml"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\drawable_logo_gdu.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\drawable\\logo_gdu.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\drawable_ic_camera_black_24dp.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\drawable\\ic_camera_black_24dp.xml"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\layout_activity_login.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\drawable_no_person.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\drawable\\no_person.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\layout_activity_stt.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\layout\\activity_stt.xml"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\drawable_icons8_google_50.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\drawable\\icons8_google_50.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\layout_activity_home.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\layout_actitity_signup.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\layout\\actitity_signup.xml"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\drawable_ic_photo_library_black_24dp.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\drawable\\ic_photo_library_black_24dp.xml"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\drawable_ic_launcher_background.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\drawable_icons8_google_100.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\drawable\\icons8_google_100.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\layout_item.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\layout\\item.xml"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\drawable_icons8_facebook_96.png.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\drawable\\icons8_facebook_96.png"
+    },
+    {
+        "merged": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\build\\intermediates\\res\\merged\\release\\layout_activity_verification.xml.flat",
+        "source": "D:\\DoAnAppChat\\DoAnAppChat\\MXH_GDU2\\app\\src\\main\\res\\layout\\activity_verification.xml"
+    }
+]

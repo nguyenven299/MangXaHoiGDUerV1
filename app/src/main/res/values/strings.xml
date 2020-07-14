@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Em yêu Khoa Học</string>
+    <string name="facebook_app_id">712369706203826</string>
+    <string name="fb_login_protocol_scheme">fb712369706203826</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
