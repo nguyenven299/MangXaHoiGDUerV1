@@ -55,7 +55,7 @@ import java.util.Date;
 public class NotificationActivity extends AppCompatActivity {
     private Button buttonChonAnh, buttonDongY, buttonHuy;
     private EditText editTextThongBao;
-    private ImageView imageViewThongBao, HinhDaiDien;
+    private ImageView imageViewThongBao;
     private Bitmap resized;
     private TextView textViewHoTen;
     private Uri imageUri;

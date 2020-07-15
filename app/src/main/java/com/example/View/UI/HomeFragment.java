@@ -57,11 +57,9 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager1);
         nhanThongBao();
-        hienThiThongBao(view);
         socialList = new ArrayList<Social>();
         return view;
     }
-
     private void nhanThongBao() {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Thong_Bao");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -69,7 +67,6 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 socialList.clear();
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-
                     Social social1 = dataSnapshot1.getValue(Social.class);
                     socialList.add(social1);
                     String key = dataSnapshot1.getKey();
@@ -80,61 +77,11 @@ public class HomeFragment extends Fragment {
                 socialAdapter.notifyDataSetChanged();
                 progressBar.setVisibility(View.GONE);
             }
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(getApplicationContext(), "Đăng Xuất Thành Công", Toast.LENGTH_SHORT).show();
             }
         });
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                socialList.clear(); //
-//                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-//                    String key = dataSnapshot1.getKey();
-//                    social = dataSnapshot1.getValue(Social.class);
-//                    Log.d("ToanBo", "onDataChange: " + social);
-//                    assert social != null;
-//                    social.setKey(key);
-//                    socialAdapter = new SocialAdapter(socialList,getContext());
-//                    recyclerView.setAdapter(socialAdapter);
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//            }
-//        });
-
-
-//        // Reverse logic
-//        for (int i = 0; i < mangThongBao.size() / 2; i++) {
-//            Social temporary = mangThongBao.get(i); //temporary là biến tạm lưu giá trị
-//            mangThongBao.set(i, mangThongBao.get(mangThongBao.size() - 1 - i)); //lấy giá trị cuối lưu vào đầu
-//            mangThongBao.set(mangThongBao.size() - 1 - i, temporary); //lấy giá trị đầu lưu vào cuối
-//        }
-
-
-    }
-
-//    private void sortData(boolean asc) {
-//        //SORT ARRAY ASCENDING AND DESCENDING
-//        if (asc) {
-//            Collections.sort(contactsAdapterSocial);
-//        } else {
-//            Collections.reverse(contactsAdapterSocial);
-//        }
-//
-//    }
-
-    private void hienThiThongBao(View view) {
-//        listView = view.findViewById(R.id.listViewSocialNetwork);
-//        contactsAdapterSocial = new ContactsAdapterSocial(getActivity(), R.layout.item);
-////        sortData(false);
-//        listView.setAdapter(contactsAdapterSocial);
-//        recyclerView.setAdapter(SocialAdapter);
     }
 
 }

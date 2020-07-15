@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,6 +26,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.example.Module.GV;
 import com.example.Module.Social;
 import com.example.View.NotificationActivity;
+import com.example.View.UpdateNotificationActivity;
 import com.example.mxh_gdu3.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -122,6 +124,19 @@ public class SocialAdapter extends RecyclerView.Adapter<SocialAdapter.ViewHolder
 
                                         }
                                     });
+
+
+                                    holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                                        @Override
+                                        public boolean onLongClick(View v) {
+                                            Toast.makeText(context, "Sửa Thông Báo", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(context, UpdateNotificationActivity.class);
+                                            context.startActivity(intent);
+                                            Intent intent1 = intent.putExtra("keySocial", socials.get(position).getKey());
+                                            context.startActivity(intent1);
+                                            return false;
+                                        }
+                                    });
                                 }
                             }
                         }
@@ -148,7 +163,7 @@ public class SocialAdapter extends RecyclerView.Adapter<SocialAdapter.ViewHolder
                         String Ten = snapshot.getString("Ho_Ten");
                         String Hinh_Dai_Dien = snapshot.getString("Anh_Dai_Dien");
                         holder.textViewHoTen.setText(Ten);
-                        Log.d("Ten", "onEvent: nguoi fung:" +Ten);
+                        Log.d("Ten", "onEvent: nguoi fung:" + Ten);
                         if (Hinh_Dai_Dien.equals("default")) {
                             holder.imageViewHinhDaiDien.setImageResource(R.drawable.no_person);
                         } else {

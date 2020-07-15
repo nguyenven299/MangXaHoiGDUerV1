@@ -51,11 +51,4 @@ public class SendSocialNetworkImple implements SendSocialNetwork {
                     }
                 });
     }
-
-    private void ChangeHomeActivy() {
-        Intent intent = new Intent(getApplicationContext(), NavigationActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-        getApplicationContext().startActivity(intent);
-    }
 }

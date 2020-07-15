@@ -49,6 +49,7 @@
         <activity android:name="com.example.View.SignUpActiviy" />
         <activity android:name="com.example.View.NotificationActivity" />
         <activity android:name="com.example.View.MessageActivity" />
+        <activity android:name="com.example.View.UpdateNotificationActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
