@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient"
     android:orientation="vertical"
-    tools:context="com.example.View.MainActivity">
+    tools:context="com.example.View.Activity.MainActivity">
 
 
     <de.hdodenhof.circleimageview.CircleImageView

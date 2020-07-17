@@ -14,8 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.Controller.FirebaseRealtime.SocialNetwork.Apdapter.SocialAdapter;
-import com.example.Module.Social;
+import com.example.View.Adapter.SocialAdapter;
+import com.example.Model.Social;
 import com.example.mxh_gdu3.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

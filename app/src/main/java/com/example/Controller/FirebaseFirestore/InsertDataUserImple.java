@@ -5,10 +5,10 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.example.Module.SV;
+import com.example.Model.SV;
 
-import com.example.View.InsertDataUserActivity;
-import com.example.View.NavigationActivity;
+import com.example.View.Activity.InsertDataUserActivity;
+import com.example.View.Activity.NavigationActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

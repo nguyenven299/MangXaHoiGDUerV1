@@ -1,8 +1,7 @@
 package com.example.Controller.FirebaseFirestore;
 
-import com.example.Module.SV;
-import com.example.View.InsertDataUserActivity;
-import com.example.View.UpdateUserActivity;
+import com.example.Model.SV;
+import com.example.View.Activity.UpdateUserActivity;
 
 public interface UpdateDataUser {
     void UpdateUserData(SV SV, final UpdateUserActivity updateUserActivity);

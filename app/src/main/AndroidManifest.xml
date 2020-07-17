@@ -18,24 +18,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.View.ResetPasswordActivity"></activity>
-        <activity android:name="com.example.View.ForgetPasswordActivity" />
-        <activity android:name="com.example.View.UpdateUserActivity" />
+        <activity android:name="com.example.View.Activity.ResetPasswordActivity"></activity>
+        <activity android:name="com.example.View.Activity.ForgetPasswordActivity" />
+        <activity android:name="com.example.View.Activity.UpdateUserActivity" />
         <activity
-            android:name="com.example.View.NavigationActivity"
+            android:name="com.example.View.Activity.NavigationActivity"
             android:label="@string/title_activity_navigation" />
-        <activity android:name="com.example.View.MainActivity">
+        <activity android:name="com.example.View.Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.View.InsertDataUserActivity" />
-        <activity android:name="com.example.View.SignUpActiviy" />
-        <activity android:name="com.example.View.NotificationActivity" />
-        <activity android:name="com.example.View.MessageActivity" />
-        <activity android:name="com.example.View.UpdateNotificationActivity" />
+        <activity android:name="com.example.View.Activity.InsertDataUserActivity" />
+        <activity android:name="com.example.View.Activity.SignUpActiviy" />
+        <activity android:name="com.example.View.Activity.NotificationActivity" />
+        <activity android:name="com.example.View.Activity.MessageActivity" />
+        <activity android:name="com.example.View.Activity.UpdateNotificationActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

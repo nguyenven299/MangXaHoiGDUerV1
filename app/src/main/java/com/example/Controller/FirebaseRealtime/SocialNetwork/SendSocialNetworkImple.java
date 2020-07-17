@@ -1,12 +1,10 @@
 package com.example.Controller.FirebaseRealtime.SocialNetwork;
 
-import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.example.Module.Social;
-import com.example.View.NavigationActivity;
+import com.example.Model.Social;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -14,8 +12,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
-
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class SendSocialNetworkImple implements SendSocialNetwork {
 

@@ -1,21 +1,14 @@
 package com.example.Controller.FirebaseFirestore;
 
-import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.example.Module.SV;
-import com.example.View.InsertDataUserActivity;
-import com.example.View.NavigationActivity;
-import com.example.View.UpdateUserActivity;
+import com.example.Model.SV;
+import com.example.View.Activity.UpdateUserActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class UpdateDataUserImple implements UpdateDataUser {
     final String USERNAME = "Ho_Ten";

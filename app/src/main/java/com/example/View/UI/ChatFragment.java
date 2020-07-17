@@ -12,10 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.Controller.FirebaseFirestore.Adapter.UserAdapter;
-import com.example.Module.ChatList;
-import com.example.Module.Chats;
-import com.example.Module.Users;
+import com.example.View.Adapter.UserAdapter;
+import com.example.Model.ChatList;
+import com.example.Model.Users;
 import com.example.mxh_gdu3.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,7 +23,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
 import java.util.List;

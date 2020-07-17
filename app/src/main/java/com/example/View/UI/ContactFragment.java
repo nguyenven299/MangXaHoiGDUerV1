@@ -1,11 +1,8 @@
 package com.example.View.UI;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,19 +13,15 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.Module.GV;
-import com.example.Module.SV;
-import com.example.Controller.FirebaseFirestore.Adapter.GVAdapter;
-import com.example.Controller.FirebaseFirestore.Adapter.SVAdapter;
+import com.example.Model.GV;
+import com.example.Model.SV;
+import com.example.View.Adapter.GVAdapter;
+import com.example.View.Adapter.SVAdapter;
 import com.example.Controller.FirebaseFirestore.ReadDataUser;
 import com.example.mxh_gdu3.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
