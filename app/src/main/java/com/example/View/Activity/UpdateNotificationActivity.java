@@ -109,7 +109,6 @@ public class UpdateNotificationActivity extends AppCompatActivity {
                 alertDialog.show();
             }
         });
-
         buttonChonAnh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,16 +124,11 @@ public class UpdateNotificationActivity extends AppCompatActivity {
                     progressBar.setVisibility(View.VISIBLE);
                     DongYDangThongBao();
                 }
-
-
             }
         });
-
         hienThiThongBaoCapNhat(keySocial);
     }
-
     private void hienThiThongBaoCapNhat(String keySocial) {
-
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Thong_Bao");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -157,17 +151,11 @@ public class UpdateNotificationActivity extends AppCompatActivity {
 
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
-
-
     }
-
-
     private void ChonAnh() {
         AlertDialog.Builder builder = new AlertDialog.Builder(UpdateNotificationActivity.this);
         builder.setTitle("Chon Che Do Hinh");

@@ -59,57 +59,86 @@ public class ContactFragment extends Fragment {
         recyclerViewGV.setLayoutManager(linearLayoutManager);
         sv = new ArrayList<>();
         gv = new ArrayList<>();
-        readUser();
+//        readUser();
+        ReadDataUser.getInstance().ReadDataSV(new ReadDataUser.IReadDataUser() {
+            @Override
+            public void onReadDataSuccess(List<SV> svList,List<GV> gvList) {
+                SVAdapter = new SVAdapter(getContext(), svList);
+                recyclerViewSV.setAdapter(SVAdapter);
+                SVAdapter.notifyDataSetChanged();
+                progressBarSV.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onReadDataFail(String error) {
+                Toast.makeText(getContext(), "Lỗi"+error, Toast.LENGTH_SHORT).show();
+            }
+        });
+     ReadDataUser.getInstance().ReadDataGV(new ReadDataUser.IReadDataUser() {
+            @Override
+            public void onReadDataSuccess(List<SV> svList,List<GV> gvList) {
+                GVAdapter = new GVAdapter(getContext(), gvList);
+                recyclerViewGV.setAdapter(GVAdapter);
+                GVAdapter.notifyDataSetChanged();
+                progressBarGV.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onReadDataFail(String error) {
+                Toast.makeText(getContext(), "Lỗi"+error, Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return view;
     }
-    private void readUser() {
-        firebaseFirestore.collection("SV").get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        if (queryDocumentSnapshots.isEmpty()) {
-                            return;
-                        } else {
-                            sv.clear();
-                            sv = queryDocumentSnapshots.toObjects(SV.class);
-
-                            SVAdapter = new SVAdapter(getContext(), sv);
-                            recyclerViewSV.setAdapter(SVAdapter);
-                            SVAdapter.notifyDataSetChanged();
-                            progressBarSV.setVisibility(View.GONE);
-                        }
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getActivity(), "Lỗi!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-        firebaseFirestore.collection("GV").get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        if (queryDocumentSnapshots.isEmpty()) {
-                            return;
-                        } else {
-                            gv.clear();
-                            gv = queryDocumentSnapshots.toObjects(GV.class);
-                            GVAdapter = new GVAdapter(getContext(), gv);
-                            recyclerViewGV.setAdapter(GVAdapter);
-                            GVAdapter.notifyDataSetChanged();
-                            progressBarGV.setVisibility(View.GONE);
-                        }
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getActivity(), "Lỗi!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
-    }
+//    private void readUser() {
+//        firebaseFirestore.collection("SV").get()
+//                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                        if (queryDocumentSnapshots.isEmpty()) {
+//                            return;
+//                        } else {
+//                            sv.clear();
+//                            sv = queryDocumentSnapshots.toObjects(SV.class);
+//
+//                            SVAdapter = new SVAdapter(getContext(), sv);
+//                            recyclerViewSV.setAdapter(SVAdapter);
+//                            SVAdapter.notifyDataSetChanged();
+//                            progressBarSV.setVisibility(View.GONE);
+//                        }
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(getActivity(), "Lỗi!", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//        firebaseFirestore.collection("GV").get()
+//                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                        if (queryDocumentSnapshots.isEmpty()) {
+//                            return;
+//                        } else {
+//                            gv.clear();
+//                            gv = queryDocumentSnapshots.toObjects(GV.class);
+//                            GVAdapter = new GVAdapter(getContext(), gv);
+//                            recyclerViewGV.setAdapter(GVAdapter);
+//                            GVAdapter.notifyDataSetChanged();
+//                            progressBarGV.setVisibility(View.GONE);
+//                        }
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(getActivity(), "Lỗi!", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//
+//    }
 }

@@ -26,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.example.Controller.FirebaseRealtime.SocialNetwork.SendSocialNetwork2;
 import com.example.Model.GV;
 import com.example.Controller.FirebaseRealtime.SocialNetwork.SendSocialNetwork;
 import com.example.Controller.FirebaseRealtime.SocialNetwork.SendSocialNetworkImple;
@@ -191,8 +192,20 @@ public class NotificationActivity extends AppCompatActivity {
                                                 social.setHinh_Dai_Dien(gv.getAnh_Dai_Dien());
                                                 social.setThong_Bao(editTextThongBao.getText().toString());
                                                 social.setThoi_Gian(currentDate);
-                                                sendSocialNetwork.SendSocialNetwork(social);
-                                                finish();
+//                                                sendSocialNetwork.SendSocialNetwork(social);
+                                                SendSocialNetwork2.getInstance().SendSocialNetwork2(social, new SendSocialNetwork2.ISendSocicalNetwork2() {
+                                                    @Override
+                                                    public void onSendSuccess(String Success) {
+                                                        Toast.makeText(NotificationActivity.this, Success, Toast.LENGTH_SHORT).show();
+                                                        finish();
+                                                    }
+
+                                                    @Override
+                                                    public void onSendFail(String Fail) {
+                                                        Toast.makeText(NotificationActivity.this, Fail, Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+
                                             }
                                         }
                                     }

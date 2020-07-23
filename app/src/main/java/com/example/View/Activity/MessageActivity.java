@@ -282,7 +282,7 @@ public class MessageActivity extends AppCompatActivity {
             }
         });
         final DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference("ChatListReceiver")
-                .child(receiver).child(receiver);
+                .child(receiver).child(firebaseUser.getUid());
         databaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

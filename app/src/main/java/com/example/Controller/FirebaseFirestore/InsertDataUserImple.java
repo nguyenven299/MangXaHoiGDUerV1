@@ -34,9 +34,7 @@ public class InsertDataUserImple implements InsertDataUser {
     @Override
     public void InsertDatabase(SV SV, final InsertDataUserActivity insertDataUserActivity) {
         SV SV1 = new SV();
-
         Log.d("firebase", "InsertDatabase: ");
-
         SV1 = SV;
         Log.d("TAG", "InsertDatabase: " + SV1.getMSSV());
         Map<String, Object> data = new HashMap<>();

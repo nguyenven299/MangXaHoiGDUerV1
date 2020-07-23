@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.Controller.FirebaseRealtime.SocialNetwork.ReadSocialNetwork;
 import com.example.View.Adapter.SocialAdapter;
 import com.example.Model.Social;
 import com.example.mxh_gdu3.R;
@@ -26,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -56,32 +58,24 @@ public class HomeFragment extends Fragment {
         linearLayoutManager1.setStackFromEnd(true);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager1);
-        nhanThongBao();
+//        nhanThongBao();
         socialList = new ArrayList<Social>();
-        return view;
-    }
-    private void nhanThongBao() {
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Thong_Bao");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        ReadSocialNetwork.getInstance().ReadDataSocial(new ReadSocialNetwork.IReadSocialNetwork() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                socialList.clear();
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    Social social1 = dataSnapshot1.getValue(Social.class);
-                    socialList.add(social1);
-                    String key = dataSnapshot1.getKey();
-                    social1.setKey(key);
-                }
+            public void onReadSocialNetworkSuccess(List<Social> socialList) {
                 socialAdapter = new SocialAdapter(socialList, getContext());
                 recyclerView.setAdapter(socialAdapter);
                 socialAdapter.notifyDataSetChanged();
                 progressBar.setVisibility(View.GONE);
             }
+
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(), "Đăng Xuất Thành Công", Toast.LENGTH_SHORT).show();
+            public void onReadSocialNetworkFail(String error) {
+                Toast.makeText(getContext(), "Loi "+error, Toast.LENGTH_SHORT).show();
             }
         });
+        return view;
     }
+
 
 }
