@@ -6,25 +6,25 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml
+8-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml
+9-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:6:5-67
-11-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:6:22-64
+11-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:6:5-67
+11-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:6:22-64
 12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-12-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:7:5-81
-12-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:7:22-78
+12-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:7:5-81
+12-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:7:22-78
 13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-13-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:8:5-80
-13-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:8:22-77
+13-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:8:5-80
+13-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:8:22-77
 14    <uses-permission android:name="android.permission.CAMERA" />
-14-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:9:5-65
-14-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:9:22-62
+14-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:9:5-65
+14-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:9:22-62
 15    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
-15-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:10:5-12:47
-15-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:11:9-64
+15-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:10:5-12:47
+15-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:11:9-64
 16
 17    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 18    <!-- <uses-sdk android:minSdkVersion="14"/> -->
@@ -42,131 +42,131 @@
 22-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\e78ea75fc38ff4415d281ae9feb22a4f\jetified-play-services-measurement-17.2.2\AndroidManifest.xml:26:22-107
 23
 24    <application
-24-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:14:5-60:19
+24-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:14:5-60:19
 25        android:allowBackup="true"
-25-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:15:9-35
+25-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:15:9-35
 26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 26-->[androidx.core:core:1.1.0] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\bcfc0b80df78591183083cc148e1cf2c\core-1.1.0\AndroidManifest.xml:24:18-86
 27        android:debuggable="true"
-28        android:icon="@mipmap/ic_launcher"
-28-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:16:9-43
+28        android:icon="@drawable/logo_gdu"
+28-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:16:9-42
 29        android:label="@string/app_name"
-29-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:17:9-41
+29-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:17:9-41
 30        android:roundIcon="@mipmap/ic_launcher_round"
-30-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:18:9-54
+30-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:18:9-54
 31        android:supportsRtl="true"
-31-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:19:9-35
+31-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:19:9-35
 32        android:testOnly="true"
 33        android:theme="@style/AppTheme" >
-33-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:20:9-40
+33-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:20:9-40
 34        <activity android:name="com.example.View.Activity.ResetPasswordActivity" />
-34-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:21:9-93
-34-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:21:19-81
+34-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:21:9-93
+34-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:21:19-81
 35        <activity android:name="com.example.View.Activity.ForgetPasswordActivity" />
-35-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:22:9-85
-35-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:22:19-82
+35-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:22:9-85
+35-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:22:19-82
 36        <activity android:name="com.example.View.Activity.UpdateUserActivity" />
-36-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:23:9-81
-36-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:23:19-78
+36-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:23:9-81
+36-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:23:19-78
 37        <activity
-37-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:24:9-26:65
+37-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:24:9-26:65
 38            android:name="com.example.View.Activity.NavigationActivity"
-38-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:25:13-72
+38-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:25:13-72
 39            android:label="@string/title_activity_navigation" />
-39-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:26:13-62
+39-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:26:13-62
 40        <activity android:name="com.example.View.Activity.MainActivity" >
-40-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:27:9-33:20
-40-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:27:19-72
+40-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:27:9-33:20
+40-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:27:19-72
 41            <intent-filter>
-41-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:28:13-32:29
+41-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:28:13-32:29
 42                <action android:name="android.intent.action.MAIN" />
-42-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:29:17-69
-42-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:29:25-66
+42-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:29:17-69
+42-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:29:25-66
 43
 44                <category android:name="android.intent.category.LAUNCHER" />
-44-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:31:17-77
-44-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:31:27-74
+44-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:31:17-77
+44-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:31:27-74
 45            </intent-filter>
 46        </activity>
 47        <activity android:name="com.example.View.Activity.InsertDataUserActivity" />
-47-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:34:9-85
-47-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:34:19-82
+47-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:34:9-85
+47-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:34:19-82
 48        <activity android:name="com.example.View.Activity.SignUpActiviy" />
-48-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:35:9-76
-48-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:35:19-73
+48-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:35:9-76
+48-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:35:19-73
 49        <activity android:name="com.example.View.Activity.NotificationActivity" />
-49-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:36:9-83
-49-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:36:19-80
+49-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:36:9-83
+49-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:36:19-80
 50        <activity android:name="com.example.View.Activity.MessageActivity" />
-50-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:37:9-78
-50-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:37:19-75
+50-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:37:9-78
+50-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:37:19-75
 51        <activity android:name="com.example.View.Activity.UpdateNotificationActivity" />
-51-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:38:9-89
-51-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:38:19-86
+51-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:38:9-89
+51-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:38:19-86
 52
 53        <meta-data
-53-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:40:9-42:55
+53-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:40:9-42:55
 54            android:name="com.facebook.sdk.ApplicationId"
-54-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:41:13-58
+54-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:41:13-58
 55            android:value="@string/facebook_app_id" />
-55-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:42:13-52
+55-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:42:13-52
 56
 57        <activity
-57-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:44:9-47:48
+57-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:44:9-47:48
 58            android:name="com.facebook.FacebookActivity"
-58-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:45:13-57
+58-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:45:13-57
 59            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-59-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:46:13-96
+59-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:46:13-96
 60            android:label="@string/app_name"
-60-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:47:13-45
+60-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:47:13-45
 61            android:theme="@style/com_facebook_activity_theme" />
-61-->[com.facebook.android:facebook-common:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\3d6283d1d682d0f7c0788688fd3ee263\jetified-facebook-common-5.15.3\AndroidManifest.xml:33:13-63
+61-->[com.facebook.android:facebook-common:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\9f228171506e533863dde428f9106a83\jetified-facebook-common-5.15.3\AndroidManifest.xml:33:13-63
 62        <activity
-62-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:48:9-59:20
+62-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:48:9-59:20
 63            android:name="com.facebook.CustomTabActivity"
-63-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:49:13-58
+63-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:49:13-58
 64            android:exported="true" >
-64-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:50:13-36
+64-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:50:13-36
 65            <intent-filter>
-65-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:51:13-58:29
+65-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:51:13-58:29
 66                <action android:name="android.intent.action.VIEW" />
-66-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:52:17-69
-66-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:52:25-66
+66-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:52:17-69
+66-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:52:25-66
 67
 68                <category android:name="android.intent.category.DEFAULT" />
-68-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:54:17-76
-68-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:54:27-73
+68-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:54:17-76
+68-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:54:27-73
 69                <category android:name="android.intent.category.BROWSABLE" />
-69-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:55:17-78
-69-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:55:27-75
+69-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:55:17-78
+69-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:55:27-75
 70
 71                <data android:scheme="@string/fb_login_protocol_scheme" />
-71-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:57:17-75
-71-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:57:23-72
+71-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:57:17-75
+71-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:57:23-72
 72            </intent-filter>
 73            <intent-filter>
-73-->[com.facebook.android:facebook-common:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\3d6283d1d682d0f7c0788688fd3ee263\jetified-facebook-common-5.15.3\AndroidManifest.xml:39:13-48:29
+73-->[com.facebook.android:facebook-common:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\9f228171506e533863dde428f9106a83\jetified-facebook-common-5.15.3\AndroidManifest.xml:39:13-48:29
 74                <action android:name="android.intent.action.VIEW" />
-74-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:52:17-69
-74-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:52:25-66
+74-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:52:17-69
+74-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:52:25-66
 75
 76                <category android:name="android.intent.category.DEFAULT" />
-76-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:54:17-76
-76-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:54:27-73
+76-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:54:17-76
+76-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:54:27-73
 77                <category android:name="android.intent.category.BROWSABLE" />
-77-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:55:17-78
-77-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:55:27-75
+77-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:55:17-78
+77-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:55:27-75
 78
 79                <data
-79-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:57:17-75
+79-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:57:17-75
 80                    android:host="cct.com.example.mxh_gdu3"
 81                    android:scheme="fbconnect" />
-81-->D:\giadinheduMXH\app\src\main\AndroidManifest.xml:57:23-72
+81-->E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:57:23-72
 82            </intent-filter>
 83        </activity>
 84        <activity android:name="com.facebook.CustomTabMainActivity" />
-84-->[com.facebook.android:facebook-common:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\3d6283d1d682d0f7c0788688fd3ee263\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:9-71
-84-->[com.facebook.android:facebook-common:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\3d6283d1d682d0f7c0788688fd3ee263\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:19-68
+84-->[com.facebook.android:facebook-common:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\9f228171506e533863dde428f9106a83\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:9-71
+84-->[com.facebook.android:facebook-common:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\9f228171506e533863dde428f9106a83\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:19-68
 85        <activity
 85-->[com.google.firebase:firebase-auth:19.3.1] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\a965e02da0dc74b3cb82526fa169fefe\jetified-firebase-auth-19.3.1\AndroidManifest.xml:24:9-31:50
 86            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
@@ -334,11 +334,11 @@
 174-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\e78ea75fc38ff4415d281ae9feb22a4f\jetified-play-services-measurement-17.2.2\AndroidManifest.xml:52:13-69
 175
 176        <meta-data
-176-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\2f9a7e741eec98c253f971e3c13ca8b3\jetified-play-services-basement-17.1.1\AndroidManifest.xml:23:9-25:69
+176-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\4d4838a5bea0c29141737c7783f9772d\jetified-play-services-basement-17.1.1\AndroidManifest.xml:23:9-25:69
 177            android:name="com.google.android.gms.version"
-177-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\2f9a7e741eec98c253f971e3c13ca8b3\jetified-play-services-basement-17.1.1\AndroidManifest.xml:24:13-58
+177-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\4d4838a5bea0c29141737c7783f9772d\jetified-play-services-basement-17.1.1\AndroidManifest.xml:24:13-58
 178            android:value="@integer/google_play_services_version" />
-178-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\2f9a7e741eec98c253f971e3c13ca8b3\jetified-play-services-basement-17.1.1\AndroidManifest.xml:25:13-66
+178-->[com.google.android.gms:play-services-basement:17.1.1] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\4d4838a5bea0c29141737c7783f9772d\jetified-play-services-basement-17.1.1\AndroidManifest.xml:25:13-66
 179        <!--
 180         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
 181         with the application context. This config is merged in with the host app's manifest,
@@ -349,25 +349,25 @@
 186         a completely different provider.
 187        -->
 188        <provider
-188-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\b22594e5a37e77cd4e9d3ac5ec591072\jetified-facebook-core-5.15.3\AndroidManifest.xml:39:9-42:40
+188-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\f7bb47e4f39d030e4889366bd7af2df7\jetified-facebook-core-5.15.3\AndroidManifest.xml:39:9-42:40
 189            android:name="com.facebook.internal.FacebookInitProvider"
-189-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\b22594e5a37e77cd4e9d3ac5ec591072\jetified-facebook-core-5.15.3\AndroidManifest.xml:40:13-70
+189-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\f7bb47e4f39d030e4889366bd7af2df7\jetified-facebook-core-5.15.3\AndroidManifest.xml:40:13-70
 190            android:authorities="com.example.mxh_gdu3.FacebookInitProvider"
-190-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\b22594e5a37e77cd4e9d3ac5ec591072\jetified-facebook-core-5.15.3\AndroidManifest.xml:41:13-72
+190-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\f7bb47e4f39d030e4889366bd7af2df7\jetified-facebook-core-5.15.3\AndroidManifest.xml:41:13-72
 191            android:exported="false" />
-191-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\b22594e5a37e77cd4e9d3ac5ec591072\jetified-facebook-core-5.15.3\AndroidManifest.xml:42:13-37
+191-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\f7bb47e4f39d030e4889366bd7af2df7\jetified-facebook-core-5.15.3\AndroidManifest.xml:42:13-37
 192
 193        <receiver
-193-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\b22594e5a37e77cd4e9d3ac5ec591072\jetified-facebook-core-5.15.3\AndroidManifest.xml:44:9-50:20
+193-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\f7bb47e4f39d030e4889366bd7af2df7\jetified-facebook-core-5.15.3\AndroidManifest.xml:44:9-50:20
 194            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
-194-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\b22594e5a37e77cd4e9d3ac5ec591072\jetified-facebook-core-5.15.3\AndroidManifest.xml:45:13-86
+194-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\f7bb47e4f39d030e4889366bd7af2df7\jetified-facebook-core-5.15.3\AndroidManifest.xml:45:13-86
 195            android:exported="false" >
-195-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\b22594e5a37e77cd4e9d3ac5ec591072\jetified-facebook-core-5.15.3\AndroidManifest.xml:46:13-37
+195-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\f7bb47e4f39d030e4889366bd7af2df7\jetified-facebook-core-5.15.3\AndroidManifest.xml:46:13-37
 196            <intent-filter>
-196-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\b22594e5a37e77cd4e9d3ac5ec591072\jetified-facebook-core-5.15.3\AndroidManifest.xml:47:13-49:29
+196-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\f7bb47e4f39d030e4889366bd7af2df7\jetified-facebook-core-5.15.3\AndroidManifest.xml:47:13-49:29
 197                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
-197-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\b22594e5a37e77cd4e9d3ac5ec591072\jetified-facebook-core-5.15.3\AndroidManifest.xml:48:17-95
-197-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\b22594e5a37e77cd4e9d3ac5ec591072\jetified-facebook-core-5.15.3\AndroidManifest.xml:48:25-92
+197-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\f7bb47e4f39d030e4889366bd7af2df7\jetified-facebook-core-5.15.3\AndroidManifest.xml:48:17-95
+197-->[com.facebook.android:facebook-core:5.15.3] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\f7bb47e4f39d030e4889366bd7af2df7\jetified-facebook-core-5.15.3\AndroidManifest.xml:48:25-92
 198            </intent-filter>
 199        </receiver>
 200

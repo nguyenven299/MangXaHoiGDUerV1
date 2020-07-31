@@ -1,9 +1,21 @@
 package com.example.Controller.FirebaseFirestore;
 
-import com.example.Model.SV;
-import com.example.View.Activity.UpdateUserActivity;
+public class UpdateDataUser {
+    private static UpdateDataUser instance;
 
-public interface UpdateDataUser {
-    void UpdateUserData(SV SV, final UpdateUserActivity updateUserActivity);
+    public static UpdateDataUser getInstance() {
+        if (instance == null)
+            instance = new UpdateDataUser();
+        return instance;
+    }
 
+    public interface IUpdateDataUser {
+        void onUpdateSuccess(String Success);
+
+        void onUpdateFail(String Fail);
+    }
+    public void UpdateDataSV(IUpdateDataUser iUpdateDataUser)
+    {
+
+    }
 }

@@ -31,6 +31,7 @@ public class ReadSocialNetwork {
     {
         void onReadSocialNetworkSuccess(List<Social> socialList);
         void onReadSocialNetworkFail(String error);
+
     }
     public void ReadDataSocial(final IReadSocialNetwork iReadSocialNetwork)
     {

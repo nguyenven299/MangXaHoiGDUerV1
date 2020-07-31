@@ -1,6 +1,7 @@
 package com.example.View.UI;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onReadSocialNetworkFail(String error) {
                 Toast.makeText(getContext(), "Loi "+error, Toast.LENGTH_SHORT).show();
+                Log.d("Loigine", "onReadSocialNetworkFail: "+ error);
             }
         });
         return view;

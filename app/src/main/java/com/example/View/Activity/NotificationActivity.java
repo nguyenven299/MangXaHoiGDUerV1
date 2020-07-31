@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -28,8 +29,6 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.Controller.FirebaseRealtime.SocialNetwork.SendSocialNetwork2;
 import com.example.Model.GV;
-import com.example.Controller.FirebaseRealtime.SocialNetwork.SendSocialNetwork;
-import com.example.Controller.FirebaseRealtime.SocialNetwork.SendSocialNetworkImple;
 import com.example.Model.Social;
 import com.example.Model.UploadImage;
 import com.example.mxh_gdu3.R;
@@ -48,6 +47,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -62,7 +63,6 @@ public class NotificationActivity extends AppCompatActivity {
     private Bitmap selectBitmap;
     private Context context;
     private String HinhAnhMaHoaByte;
-    private SendSocialNetworkImple sendSocialNetworkImple;
     private StorageReference storageReference;
     private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
     private FirebaseAuth firebaseAuth;
@@ -71,7 +71,7 @@ public class NotificationActivity extends AppCompatActivity {
     private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     private GV gV;
     private Social social = new Social();
-    private SendSocialNetwork sendSocialNetwork = new SendSocialNetworkImple();
+
     Calendar calendar = Calendar.getInstance();
     String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
     private String urlImage;
@@ -163,6 +163,7 @@ public class NotificationActivity extends AppCompatActivity {
 
     private void DongYDangThongBao() {
 
+
         if (imageUri != null) {
             storageReference = FirebaseStorage.getInstance().getReference("Hinh_Thong_Bao");
             String filemane = textAddress;
@@ -238,8 +239,18 @@ public class NotificationActivity extends AppCompatActivity {
                             social.setThong_Bao(editTextThongBao.getText().toString());
                             social.setThoi_Gian(currentDate);
                             social.setHinh_Thong_Bao("default");
-                            sendSocialNetwork.SendSocialNetwork(social);
-                            finish();
+                            SendSocialNetwork2.getInstance().SendSocialNetwork2(social, new SendSocialNetwork2.ISendSocicalNetwork2() {
+                                @Override
+                                public void onSendSuccess(String Success) {
+                                    Toast.makeText(NotificationActivity.this, Success, Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+
+                                @Override
+                                public void onSendFail(String Fail) {
+                                    Toast.makeText(NotificationActivity.this, Fail, Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
                     }
                 }
@@ -272,6 +283,7 @@ public class NotificationActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 100 && resultCode == RESULT_OK) {
             selectBitmap = (Bitmap) data.getExtras().get("data");
+
             Glide.with(this).asBitmap().load(selectBitmap).into(new SimpleTarget<Bitmap>(100, 100) {
                 @Override
                 public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
@@ -281,6 +293,9 @@ public class NotificationActivity extends AppCompatActivity {
                     imageViewThongBao.setImageBitmap(resized);
                 }
             });
+
+
+            imageUri = data.getData();
         } else if (requestCode == 200 && resultCode == RESULT_OK) {
             //xử lý ảnh lấy từ đt
             imageUri = data.getData();

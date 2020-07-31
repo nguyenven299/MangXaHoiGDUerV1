@@ -18,8 +18,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.Controller.FirebaseFirestore.UpdateDataUser;
-import com.example.Controller.FirebaseFirestore.UpdateDataUserImple;
+import com.example.Controller.FirebaseFirestore.ShowInforGV;
+import com.example.Controller.FirebaseFirestore.ShowInforSV;
+import com.example.Controller.FirebaseFirestore.UpdateDataGV;
+import com.example.Controller.FirebaseFirestore.UpdateDataSV;
 import com.example.Model.GV;
 import com.example.Model.SV;
 import com.example.mxh_gdu3.R;
@@ -74,7 +76,6 @@ public class UpdateUserActivity extends AppCompatActivity {
     private String LopHoc1;
     private String NganhHoc1;
     private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-    private UpdateDataUser updateDataUser = new UpdateDataUserImple();
     private SV SV = new SV();
     private GV GV = new GV();
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -141,48 +142,23 @@ public class UpdateUserActivity extends AppCompatActivity {
     }
 
     private void HienThiThongTin() {
-        ListenerRegistration listenerRegistration;
-        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        final DocumentReference docRef = firebaseFirestore.collection("SV").document(firebaseUser.getUid());
-        listenerRegistration = docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        ShowInforSV.getInstance().ShowSV(new ShowInforSV.IshowInforSV() {
             @Override
-            public void onEvent(@Nullable DocumentSnapshot snapshot,
-                                @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    return;
-                }
-
-                if (snapshot != null && snapshot.exists()) {
-                    String Ten = snapshot.getString("Ho_Ten");
-                    String MSSV = snapshot.getString("MSSV");
-                    String S_D_T = snapshot.getString("SDT");
-                    editTextSDT.setText(S_D_T);
-                    editTextMSSV.setText(MSSV);
-                    editTextHoTen.setText(Ten);
-                }
+            public void onSuccess(SV sv) {
+                editTextSDT.setText(sv.getSDT());
+                editTextMSSV.setText(sv.getMSSV());
+                editTextHoTen.setText(sv.getHo_Ten());
             }
         });
-        final DocumentReference docRef1 = firebaseFirestore.collection("GV").document(firebaseUser.getUid());
-        listenerRegistration = docRef1.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        ShowInforGV.getInstance().ShowGV(new ShowInforGV.IshowInforGV() {
             @Override
-            public void onEvent(@Nullable DocumentSnapshot snapshot,
-                                @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    return;
-                }
-
-                if (snapshot != null && snapshot.exists()) {
-                    String Ten = snapshot.getString("Ho_Ten");
-                    String MSSV = snapshot.getString("MSGV");
-                    String S_D_T = snapshot.getString("SDT");
-                    editTextSDT.setText(S_D_T);
-                    editTextMSSV.setText(MSSV);
-                    editTextHoTen.setText(Ten);
-                    textViewLopHoc.setVisibility(View.GONE);
-                    spinnerLopHoc.setVisibility(View.GONE);
-                    textViewNgangHoc.setText("Chuyên Ngành");
-                }
+            public void onSuccess(GV gv) {
+                editTextSDT.setText(gv.getSDT());
+                editTextMSSV.setText(gv.getMSGV());
+                editTextHoTen.setText(gv.getHo_Ten());
+                textViewLopHoc.setVisibility(View.GONE);
+                spinnerLopHoc.setVisibility(View.GONE);
+                textViewNgangHoc.setText("Chuyên Ngành");
             }
         });
     }
@@ -198,40 +174,35 @@ public class UpdateUserActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 DocumentSnapshot document = task.getResult();
                                 if (document.exists()) {
-                                    DocumentReference documentReference1 = firebaseFirestore.collection("GV").document(firebaseUser.getUid());
-                                    documentReference1.update("Ho_Ten", GV.getHo_Ten());
-                                    documentReference1.update("MSGV", GV.getMSGV());
-                                    documentReference1.update(EMAIL, firebaseUser.getEmail());
-                                    documentReference1.update("SDT", GV.getSDT());
-                                    documentReference1.update("Nganh_Day", GV.getNganh_Day())
-                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void aVoid) {
-                                                    Toast.makeText(UpdateUserActivity.this, "Cập Nhật Thành Công", Toast.LENGTH_SHORT).show();
-                                                    Intent intent = new Intent(UpdateUserActivity.this, NavigationActivity.class);
-                                                    startActivity(intent);
-                                                    finish();
-                                                    Log.d("TAG", "onSuccess: updateUser");
-                                                }
-                                            });
+                                    UpdateDataGV.getInstance().UpdateGV(GV, new UpdateDataGV.IupdateDataGV() {
+                                        @Override
+                                        public void onSuccess(String Success) {
+                                            Toast.makeText(UpdateUserActivity.this, Success, Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(UpdateUserActivity.this, NavigationActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                        @Override
+                                        public void onFail(String Fail) {
+                                            Toast.makeText(UpdateUserActivity.this, Fail, Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                                 } else {
-                                    DocumentReference documentReference = firebaseFirestore.collection("SV").document(firebaseUser.getUid());
-                                    documentReference.update(USERNAME, SV.getHo_Ten());
-                                    documentReference.update(MASO, SV.getMSSV());
-                                    documentReference.update(EMAIL, firebaseUser.getEmail());
-                                    documentReference.update(PHONENUMBER, SV.getSDT());
-                                    documentReference.update(CARRER, SV.getNganh_Hoc());
-                                    documentReference.update(CLASS, SV.getLopHoc())
-                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void aVoid) {
-                                                    Toast.makeText(UpdateUserActivity.this, "Cập Nhật Thành Công", Toast.LENGTH_SHORT).show();
-                                                    Intent intent = new Intent(UpdateUserActivity.this, NavigationActivity.class);
-                                                    startActivity(intent);
-                                                    finish();
-                                                    Log.d("TAG", "onSuccess: updateUser");
-                                                }
-                                            });
+                                    UpdateDataSV.getInstance().UpdateSV(SV, new UpdateDataSV.IupdateDataSV() {
+                                        @Override
+                                        public void Success(String Succees) {
+                                            Toast.makeText(UpdateUserActivity.this, Succees, Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(UpdateUserActivity.this, NavigationActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                            Log.d("TAG", "onSuccess: updateUser");
+                                        }
+
+                                        @Override
+                                        public void Fail(String Fail) {
+                                            Toast.makeText(UpdateUserActivity.this, Fail, Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                                 }
                             }
                         }
@@ -248,7 +219,6 @@ public class UpdateUserActivity extends AppCompatActivity {
         SV.setNganh_Hoc(nganhHoc);
         SV.setSDT(sdt);
         SV.setEmail(email);
-
 
         GV.setMSGV(mssv);
         GV.setHo_Ten(hoTen);

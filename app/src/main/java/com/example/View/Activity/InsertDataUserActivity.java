@@ -1,5 +1,6 @@
 package com.example.View.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,7 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Controller.FirebaseFirestore.InsertDataUser;
-import com.example.Controller.FirebaseFirestore.InsertDataUserImple;
 import com.example.Model.SV;
 import com.example.mxh_gdu3.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -59,7 +59,7 @@ public class InsertDataUserActivity extends AppCompatActivity {
             "Kinh Tế",
     };
     private EditText editTextHoTen, editTextMSSV, editTextSDT;
-    private InsertDataUser insertDataUser = new InsertDataUserImple();
+    private InsertDataUser insertDataUser = new InsertDataUser();
     private Spinner spinnerNganhHoc, spinnerLopHoc;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private Toolbar toolbar;
@@ -119,8 +119,20 @@ public class InsertDataUserActivity extends AppCompatActivity {
         SV.setNganh_Hoc(nganhHoc);
         SV.setSDT(sdt);
         SV.setEmail(email);
-        InsertDataUserActivity insertDataUserActivity = new InsertDataUserActivity();
-        insertDataUser.InsertDatabase(SV, insertDataUserActivity);
+        InsertDataUser.getInstance().InsertDatabase(SV, new InsertDataUser.IinsertDatabase() {
+            @Override
+            public void onSuccess(String Success) {
+                Toast.makeText(InsertDataUserActivity.this, Success, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(InsertDataUserActivity.this, NavigationActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onFail(String Fail) {
+                Toast.makeText(InsertDataUserActivity.this, Fail, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
