@@ -25,9 +25,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.Controller.FirebaseRealtime.SocialNetwork.SendSocialNetwork2;
+import com.example.Controller.FirebaseRealtime.SocialNetwork.SendSocialNetwork;
 import com.example.Model.GV;
 import com.example.Model.Social;
 import com.example.Model.UploadImage;
@@ -47,8 +48,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -88,6 +87,7 @@ public class NotificationActivity extends AppCompatActivity {
         buttonDongY = findViewById(R.id.buttonDongY);
         buttonHuy = findViewById(R.id.buttonHuy);
         progressBar = findViewById(R.id.progressBar);
+
         Log.d("nguoi dung", "onCreate: " + firebaseUser.getUid());
         buttonHuy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -194,7 +194,7 @@ public class NotificationActivity extends AppCompatActivity {
                                                 social.setThong_Bao(editTextThongBao.getText().toString());
                                                 social.setThoi_Gian(currentDate);
 //                                                sendSocialNetwork.SendSocialNetwork(social);
-                                                SendSocialNetwork2.getInstance().SendSocialNetwork2(social, new SendSocialNetwork2.ISendSocicalNetwork2() {
+                                                SendSocialNetwork.getInstance().SendSocialNetwork2(social, new SendSocialNetwork.ISendSocicalNetwork2() {
                                                     @Override
                                                     public void onSendSuccess(String Success) {
                                                         Toast.makeText(NotificationActivity.this, Success, Toast.LENGTH_SHORT).show();
@@ -239,7 +239,7 @@ public class NotificationActivity extends AppCompatActivity {
                             social.setThong_Bao(editTextThongBao.getText().toString());
                             social.setThoi_Gian(currentDate);
                             social.setHinh_Thong_Bao("default");
-                            SendSocialNetwork2.getInstance().SendSocialNetwork2(social, new SendSocialNetwork2.ISendSocicalNetwork2() {
+                            SendSocialNetwork.getInstance().SendSocialNetwork2(social, new SendSocialNetwork.ISendSocicalNetwork2() {
                                 @Override
                                 public void onSendSuccess(String Success) {
                                     Toast.makeText(NotificationActivity.this, Success, Toast.LENGTH_SHORT).show();
@@ -289,6 +289,7 @@ public class NotificationActivity extends AppCompatActivity {
                 public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
 //                    storageReference = FirebaseStorage.getInstance().getReference("HinhAnhThongBao");
                     //chua lam xong can tim hieu
+                    ((BitmapDrawable)imageViewThongBao.getDrawable()).getBitmap().recycle();
                     resized = Bitmap.createScaledBitmap(selectBitmap, (int) (selectBitmap.getWidth() * 0.8), (int) (selectBitmap.getHeight() * 0.8), true);
                     imageViewThongBao.setImageBitmap(resized);
                 }
@@ -300,8 +301,16 @@ public class NotificationActivity extends AppCompatActivity {
             //xử lý ảnh lấy từ đt
             imageUri = data.getData();
             try {
+                ((BitmapDrawable)imageViewThongBao.getDrawable()).getBitmap().recycle();
                 selectBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-                resized = Bitmap.createScaledBitmap(selectBitmap, (int) (selectBitmap.getWidth() * 0.8), (int) (selectBitmap.getHeight() * 0.8), true);
+                Glide.with(getApplicationContext()).asBitmap().load(selectBitmap).diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .skipMemoryCache(true).into(new SimpleTarget<Bitmap>(200, 200) {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
+                        imageViewThongBao.setImageBitmap(resource);
+                    }
+                });
                 imageViewThongBao.setImageBitmap(resized);
                 Uri uri = data.getData();
                 String path = uri.getPath();

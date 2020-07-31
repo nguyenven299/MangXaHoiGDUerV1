@@ -1,7 +1,5 @@
 package com.example.Controller.FirebaseRealtime.SocialNetwork;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
 import com.example.Model.Social;
@@ -13,7 +11,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class EditSocialNetworkImple implements EditSocialNetwork {
+public class SendSocialNetwork {
+    public static SendSocialNetwork instance;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Thong_Bao");
     final private String Uid = "uid";
@@ -23,29 +22,37 @@ public class EditSocialNetworkImple implements EditSocialNetwork {
     final private String Ho_Ten = "Ho_Ten";
     final private String HinhDaiDien = "Hinh_Dai_Dien";
 
-    public void UpdateSocialNetwork(Social social) {
+    public static SendSocialNetwork getInstance() {
+        if (instance == null)
+            instance = new SendSocialNetwork();
+        return instance;
+    }
 
-        Social social1 = new Social();
-        social1 = social;
+    public void SendSocialNetwork2(Social social, final ISendSocicalNetwork2 iSendSocicalNetwork2) {
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put(Uid, social1.getUid());
-        hashMap.put(HinhThongBao, social1.getHinh_Thong_Bao());
-        hashMap.put(Thoi_Gian, social1.getThoi_Gian());
-        hashMap.put(Thong_Bao, social1.getThong_Bao());
-        hashMap.put(Ho_Ten, social1.getHo_Ten());
-        hashMap.put(HinhDaiDien, social1.getHinh_Dai_Dien());
-        databaseReference.child(social1.getKey()).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        hashMap.put(Uid, social.getUid());
+        hashMap.put(HinhThongBao, social.getHinh_Thong_Bao());
+        hashMap.put(Thoi_Gian, social.getThoi_Gian());
+        hashMap.put(Thong_Bao, social.getThong_Bao());
+        hashMap.put(Ho_Ten, social.getHo_Ten());
+        hashMap.put(HinhDaiDien, social.getHinh_Dai_Dien());
+        databaseReference.push().setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                Log.d("ThanhCong", "onComplete: ThanhCong ");
+                iSendSocicalNetwork2.onSendSuccess("Đăng Thông Báo Thành Công");
             }
         })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
+                        iSendSocicalNetwork2.onSendFail(e.getMessage());
                     }
                 });
     }
 
+    public interface ISendSocicalNetwork2 {
+        void onSendSuccess(String Success);
+
+        void onSendFail(String Fail);
+    }
 }

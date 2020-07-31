@@ -1,5 +1,6 @@
 package com.example.Controller.FirebaseRealtime.SocialNetwork;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -31,7 +32,6 @@ public class ReadSocialNetwork {
     {
         void onReadSocialNetworkSuccess(List<Social> socialList);
         void onReadSocialNetworkFail(String error);
-
     }
     public void ReadDataSocial(final IReadSocialNetwork iReadSocialNetwork)
     {
@@ -57,4 +57,5 @@ public class ReadSocialNetwork {
             }
         });
     }
+
 }

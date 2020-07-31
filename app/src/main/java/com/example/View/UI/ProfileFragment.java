@@ -3,6 +3,7 @@ package com.example.View.UI;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.Model.GV;
@@ -84,6 +86,7 @@ public class ProfileFragment extends Fragment {
         MaSo = view.findViewById(R.id.MaSo);
         ChuyenNganh = view.findViewById(R.id.ChuyenNganh);
         HinhDaiDien = view.findViewById(R.id.HinhDaiDien);
+
         imageViewDangXuat = view.findViewById(R.id.iconDangXuat);
         imageViewChinhSua = view.findViewById(R.id.iconSuaThongTin);
         imageViewDoiMatKhau.setOnClickListener(new View.OnClickListener() {
@@ -215,20 +218,12 @@ public class ProfileFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == 200 && resultCode == RESULT_OK) {
             imageUri = data.getData();
-            Glide.with(getApplicationContext()).asBitmap().load(imageUri).into(new SimpleTarget<Bitmap>(200, 200) {
+            Glide.with(getApplicationContext()).asBitmap().load(selectBitmap).diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true).into(new SimpleTarget<Bitmap>(200, 200) {
                 @Override
                 public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                    UploadImage();
                     resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
-
-
-                    String path = imageUri.getPath();
-                    String filename = path.substring(path.lastIndexOf("/") + 1);
-                    textAddress = filename;
-                }
-
-                @Override
-                public void onLoadCleared(@Nullable Drawable placeholder) {
+                    HinhDaiDien.setImageBitmap(resource);
                 }
             });
         }

@@ -5,6 +5,8 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -22,10 +24,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.Controller.FirebaseRealtime.SocialNetwork.EditSocialNetwork;
-import com.example.Controller.FirebaseRealtime.SocialNetwork.EditSocialNetworkImple;
+import com.example.Controller.FirebaseRealtime.SocialNetwork.GetNotificationForUpdate;
+import com.example.Controller.FirebaseRealtime.SocialNetwork.ReadSocialNetwork;
+import com.example.Controller.FirebaseRealtime.SocialNetwork.SendSocialNetwork;
+import com.example.Controller.FirebaseRealtime.SocialNetwork.UpdateSocialNetwork;
 import com.example.Model.GV;
 import com.example.Model.Social;
 import com.example.Model.UploadImage;
@@ -52,6 +57,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 public class UpdateNotificationActivity extends AppCompatActivity {
     private Button buttonChonAnh, buttonDongY, buttonHuy;
@@ -64,7 +70,6 @@ public class UpdateNotificationActivity extends AppCompatActivity {
     private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
     private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     private Social social = new Social();
-    private EditSocialNetwork editSocialNetwork = new EditSocialNetworkImple();
 
     Calendar calendar = Calendar.getInstance();
     String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
@@ -86,6 +91,7 @@ public class UpdateNotificationActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         Intent intent = getIntent();
         keySocial = intent.getStringExtra("keySocial");
+
         buttonHuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,34 +134,59 @@ public class UpdateNotificationActivity extends AppCompatActivity {
         });
         hienThiThongBaoCapNhat(keySocial);
     }
-    private void hienThiThongBaoCapNhat(String keySocial) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Thong_Bao");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
-                {
-                    Social social1 = dataSnapshot1.getValue(Social.class);
-                    editTextThongBao.setText(social1.getThong_Bao());
-                    if (social1.getHinh_Thong_Bao().equals("default")) {
-                        imageViewThongBao.setVisibility(View.INVISIBLE);
-                    } else {
-                        Glide.with(getApplicationContext()).asBitmap().load(social1.getHinh_Thong_Bao()).into(new SimpleTarget<Bitmap>(200, 200) {
-                            @Override
-                            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                                resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
-                                imageViewThongBao.setImageBitmap(resource);
-                            }
-                        });
-                    }
 
-                }
-            }
+    private void hienThiThongBaoCapNhat(String keySocial) {
+        GetNotificationForUpdate.getInstance().GetImage(keySocial, new GetNotificationForUpdate.IgetNotificationForUpdate() {
+
+
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void ImageNull(String ThongBao, String HinhThongBao) {
+                editTextThongBao.setText(ThongBao);
+                imageViewThongBao.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void Image(String ThongBao, String HinhThongBao) {
+                editTextThongBao.setText(ThongBao);
+                Glide.with(getApplicationContext()).asBitmap().load(HinhThongBao).into(new SimpleTarget<Bitmap>(200, 200) {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
+                        imageViewThongBao.setImageBitmap(resource);
+                    }
+                });
+
             }
         });
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Thong_Bao");
+//        databaseReference.child(keySocial).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                Social social1 = dataSnapshot.getValue(Social.class);
+//                editTextThongBao.setText(social1.getThong_Bao());
+//                if (social1.getHinh_Thong_Bao().equals("default")) {
+//                    imageViewThongBao.setVisibility(View.INVISIBLE);
+//                } else {
+//                    Glide.with(getApplicationContext()).asBitmap().load(social1.getHinh_Thong_Bao()).into(new SimpleTarget<Bitmap>(200, 200) {
+//                        @Override
+//                        public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+//                            resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
+//                            imageViewThongBao.setImageBitmap(resource);
+//                        }
+//                    });
+//                }
+//
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
     }
+
     private void ChonAnh() {
         AlertDialog.Builder builder = new AlertDialog.Builder(UpdateNotificationActivity.this);
         builder.setTitle("Chon Che Do Hinh");
@@ -215,10 +246,21 @@ public class UpdateNotificationActivity extends AppCompatActivity {
                                                 social.setThong_Bao(editTextThongBao.getText().toString());
                                                 social.setThoi_Gian(currentDate);
                                                 social.setKey(keySocial);
-                                                editSocialNetwork.UpdateSocialNetwork(social);
-                                                Intent intent = new Intent(UpdateNotificationActivity.this, NavigationActivity.class);
-                                                startActivity(intent);
-                                                finish();
+                                                UpdateSocialNetwork.getInstance().UpdateSocial(keySocial, social, new UpdateSocialNetwork.IupdateSocialNetwork() {
+                                                    @Override
+                                                    public void onSuccess(String Success) {
+                                                        Toast.makeText(UpdateNotificationActivity.this, Success, Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent(UpdateNotificationActivity.this, NavigationActivity.class);
+                                                        startActivity(intent);
+                                                        finish();
+                                                    }
+
+                                                    @Override
+                                                    public void onFail(String Fail) {
+                                                        Toast.makeText(UpdateNotificationActivity.this, Fail, Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+
                                             }
                                         }
                                     }
@@ -235,32 +277,88 @@ public class UpdateNotificationActivity extends AppCompatActivity {
                         }
                     });
         } else {
-            FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
-            DocumentReference docIdRef = rootRef.collection("GV").document(firebaseUser.getUid());
-            docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            GetNotificationForUpdate.getInstance().GetImage(keySocial, new GetNotificationForUpdate.IgetNotificationForUpdate() {
                 @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            DocumentSnapshot documentSnapshot = task.getResult();
-                            Log.d("danh sach", "onComplete: " + documentSnapshot.getData());
-                            GV gv = document.toObject(GV.class);
-                            social.setUid(firebaseUser.getUid());
-                            social.setHinh_Dai_Dien(gv.getAnh_Dai_Dien());
-                            social.setThong_Bao(editTextThongBao.getText().toString());
-                            social.setThoi_Gian(currentDate);
-                            social.setHinh_Thong_Bao("default");
-                            social.setKey(keySocial);
-                            editSocialNetwork.UpdateSocialNetwork(social);
-                            Intent intent = new Intent(UpdateNotificationActivity.this, NavigationActivity.class);
-                            startActivity(intent);
-                            finish();
+                public void ImageNull(String ThongBao, final String HinhThongBao) {
+                    FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+                    DocumentReference docIdRef = rootRef.collection("GV").document(firebaseUser.getUid());
+                    docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot document = task.getResult();
+                                if (document.exists()) {
+                                    DocumentSnapshot documentSnapshot = task.getResult();
+                                    Log.d("danh sach", "onComplete: " + documentSnapshot.getData());
+                                    GV gv = document.toObject(GV.class);
+                                    social.setUid(firebaseUser.getUid());
+                                    social.setHinh_Dai_Dien(gv.getAnh_Dai_Dien());
+                                    social.setThong_Bao(editTextThongBao.getText().toString());
+                                    social.setThoi_Gian(currentDate);
+                                    social.setHinh_Thong_Bao("default");
+                                    social.setKey(keySocial);
+                                    UpdateSocialNetwork.getInstance().UpdateSocial(keySocial, social, new UpdateSocialNetwork.IupdateSocialNetwork() {
+                                        @Override
+                                        public void onSuccess(String Success) {
+                                            Toast.makeText(UpdateNotificationActivity.this, Success, Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(UpdateNotificationActivity.this, NavigationActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+
+                                        @Override
+                                        public void onFail(String Fail) {
+                                            Toast.makeText(UpdateNotificationActivity.this, Fail, Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+                                }
+                            }
                         }
-                    }
+                    });
+                }
+
+                @Override
+                public void Image(String ThongBao, final String HinhThongBao) {
+                    FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+                    DocumentReference docIdRef = rootRef.collection("GV").document(firebaseUser.getUid());
+                    docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot document = task.getResult();
+                                if (document.exists()) {
+                                    DocumentSnapshot documentSnapshot = task.getResult();
+                                    Log.d("danh sach", "onComplete: " + documentSnapshot.getData());
+                                    GV gv = document.toObject(GV.class);
+                                    social.setUid(firebaseUser.getUid());
+                                    social.setHinh_Dai_Dien(gv.getAnh_Dai_Dien());
+                                    social.setThong_Bao(editTextThongBao.getText().toString());
+                                    social.setThoi_Gian(currentDate);
+
+                                    social.setKey(keySocial);
+                                    UpdateSocialNetwork.getInstance().UpdateSocial(keySocial, social, new UpdateSocialNetwork.IupdateSocialNetwork() {
+                                        @Override
+                                        public void onSuccess(String Success) {
+                                            Toast.makeText(UpdateNotificationActivity.this, Success, Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(UpdateNotificationActivity.this, NavigationActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+
+                                        @Override
+                                        public void onFail(String Fail) {
+                                            Toast.makeText(UpdateNotificationActivity.this, Fail, Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+                                }
+                            }
+                        }
+                    });
                 }
             });
-            Toast.makeText(UpdateNotificationActivity.this, "Cập Nhât Thông Báo Thành Công", Toast.LENGTH_SHORT).show();
+
         }
     }
 
@@ -288,13 +386,11 @@ public class UpdateNotificationActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 100 && resultCode == RESULT_OK) {
             selectBitmap = (Bitmap) data.getExtras().get("data");
-            Glide.with(this).asBitmap().load(selectBitmap).into(new SimpleTarget<Bitmap>(100, 100) {
+            Glide.with(getApplicationContext()).asBitmap().load(selectBitmap).into(new SimpleTarget<Bitmap>(200, 200) {
                 @Override
                 public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-//                    storageReference = FirebaseStorage.getInstance().getReference("HinhAnhThongBao");
-                    //chua lam xong can tim hieu
-                    resized = Bitmap.createScaledBitmap(selectBitmap, (int) (selectBitmap.getWidth() * 0.8), (int) (selectBitmap.getHeight() * 0.8), true);
-                    imageViewThongBao.setImageBitmap(resized);
+                    resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
+                    imageViewThongBao.setImageBitmap(resource);
                 }
             });
         } else if (requestCode == 200 && resultCode == RESULT_OK) {
@@ -302,8 +398,23 @@ public class UpdateNotificationActivity extends AppCompatActivity {
             imageUri = data.getData();
             try {
                 selectBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-                resized = Bitmap.createScaledBitmap(selectBitmap, (int) (selectBitmap.getWidth() * 0.8), (int) (selectBitmap.getHeight() * 0.8), true);
-                imageViewThongBao.setImageBitmap(resized);
+                Glide.with(getApplicationContext()).asBitmap().load(selectBitmap).diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .skipMemoryCache(true).into(new SimpleTarget<Bitmap>(200, 200) {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
+                        imageViewThongBao.setImageBitmap(resource);
+                    }
+                });
+//                Glide.with(getApplicationContext()).load(selectBitmap) .diskCacheStrategy(DiskCacheStrategy.NONE)
+//                        .skipMemoryCache(true).into(new SimpleTarget<Bitmap>() {
+//                    @Override
+//                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+//
+//                    }
+//                });
+//                resized = Bitmap.createScaledBitmap(selectBitmap, (int) (selectBitmap.getWidth() * 0.8), (int) (selectBitmap.getHeight() * 0.8), true);
+//                imageViewThongBao.setImageBitmap(resized);
                 Uri uri = data.getData();
                 String path = uri.getPath();
                 String filename = path.substring(path.lastIndexOf("/") + 1);

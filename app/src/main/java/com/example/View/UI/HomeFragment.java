@@ -72,9 +72,9 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onReadSocialNetworkFail(String error) {
-                Toast.makeText(getContext(), "Loi "+error, Toast.LENGTH_SHORT).show();
-                Log.d("Loigine", "onReadSocialNetworkFail: "+ error);
+                Log.d("LoiHienThiTrangChu", "onReadSocialNetworkFail: "+error);
             }
+
         });
         return view;
     }

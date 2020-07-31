@@ -22,8 +22,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.example.Controller.FirebaseFirestore.ReadDataGVMessage;
+import com.example.Controller.FirebaseFirestore.ShowInforGV;
 import com.example.Model.GV;
 import com.example.Model.Social;
+import com.example.View.Activity.MessageActivity;
 import com.example.View.Activity.UpdateNotificationActivity;
 import com.example.mxh_gdu3.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -129,9 +132,10 @@ public class SocialAdapter extends RecyclerView.Adapter<SocialAdapter.ViewHolder
                                         public boolean onLongClick(View v) {
                                             Toast.makeText(context, "Sửa Thông Báo", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(context, UpdateNotificationActivity.class);
+                                            intent.putExtra("keySocial", socials.get(position).getKey());
                                             context.startActivity(intent);
-                                            Intent intent1 = intent.putExtra("keySocial", socials.get(position).getKey());
-                                            context.startActivity(intent1);
+//                                            Intent intent = new Intent(context, UpdateNotificationActivity.class);
+//                                            context.startActivity(intent);
                                             return false;
                                         }
                                     });
@@ -147,36 +151,23 @@ public class SocialAdapter extends RecyclerView.Adapter<SocialAdapter.ViewHolder
             holder.textViewNoiDungTHongBao.setText(socials.get(position).getThong_Bao());
             Log.d("ThongBao", "onBindViewHolder: " + socials.get(position).getThong_Bao());
             holder.textViewThoiGian.setText(socials.get(position).getThoi_Gian());
-            FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-            final DocumentReference docRef = firebaseFirestore.collection("GV").document(socials.get(position).getUid());
-            listenerRegistration = docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            ReadDataGVMessage.getInstance().ReadGV(firebaseUser.getUid(), new ReadDataGVMessage.IreadDataGV() {
                 @Override
-                public void onEvent(@Nullable DocumentSnapshot snapshot,
-                                    @Nullable FirebaseFirestoreException e) {
-                    if (e != null) {
-                        return;
-                    }
-
-                    if (snapshot != null && snapshot.exists()) {
-                        String Ten = snapshot.getString("Ho_Ten");
-                        String Hinh_Dai_Dien = snapshot.getString("Anh_Dai_Dien");
-                        holder.textViewHoTen.setText(Ten);
-                        Log.d("Ten", "onEvent: nguoi fung:" + Ten);
-                        if (Hinh_Dai_Dien.equals("default")) {
-                            holder.imageViewHinhDaiDien.setImageResource(R.drawable.no_person);
-                        } else {
-                            Glide.with(getApplicationContext()).asBitmap().load(Hinh_Dai_Dien).into(new SimpleTarget<Bitmap>(200, 200) {
-                                @Override
-                                public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                                    resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
-                                    holder.imageViewHinhDaiDien.setImageBitmap(resource);
-                                }
-                            });
-
+                public void onImage(GV gv) {
+                    holder.textViewHoTen.setText(gv.getHo_Ten());
+                    Glide.with(getApplicationContext()).asBitmap().load(gv.getAnh_Dai_Dien()).into(new SimpleTarget<Bitmap>(200, 200) {
+                        @Override
+                        public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                            resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
+                            holder.imageViewHinhDaiDien.setImageBitmap(resource);
                         }
+                    });
+                }
 
-
-                    }
+                @Override
+                public void onImageNull(GV gv) {
+                    holder.imageViewHinhDaiDien.setImageResource(R.drawable.no_person);
+                    holder.textViewHoTen.setText(gv.getHo_Ten());
                 }
             });
             if (holder.textViewHoTen.getText().toString() != null && holder.textViewNoiDungTHongBao.getText().toString() != null) {
