@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Em yêu Khoa Học</string>
+    <string name="app_name">Mạng Xã Hội GDU</string>
     <string name="facebook_app_id">712369706203826</string>
     <string name="fb_login_protocol_scheme">fb712369706203826</string>
     <string name="title_activity_navigation">NavigationActivity</string>

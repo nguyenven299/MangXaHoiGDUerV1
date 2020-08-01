@@ -2,6 +2,7 @@ package com.example.Controller.FirebaseFirestore;
 
 import androidx.annotation.NonNull;
 
+import com.example.Model.GV;
 import com.example.Model.SV;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,21 +22,38 @@ public class CheckAccExist {
         void AccExist(String Exist);
         void AccNull(String Null);
     }
-    public void CheckAccout(String uid, final IcheckAccExist icheckAccExist)
+    public void CheckAccout(final String uid, final IcheckAccExist icheckAccExist)
     {
-        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-        firebaseFirestore.collection("SV").document(uid).get()
+        final FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseFirestore.collection("GV").document(uid).get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            SV sv = document.toObject(SV.class);
-                           icheckAccExist.AccExist("Chào Bạn " +sv.getHo_Ten() );
-                        } else {
-                           icheckAccExist.AccNull("Vui Lòng Nhập Đầy Đủ Thông Tin");
-                        }
+                       DocumentSnapshot documentSnapshot = task.getResult();
+                       if(documentSnapshot.exists())
+                       {
+                           GV gv = documentSnapshot.toObject(GV.class);
+                           icheckAccExist.AccExist("Chào " +gv.getHo_Ten() );
+                       }
+                       else
+                       {
+                           FirebaseFirestore firebaseFirestore1 = FirebaseFirestore.getInstance();
+                           firebaseFirestore1.collection("SV").document(uid).get()
+                                   .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                       @Override
+                                       public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                           DocumentSnapshot document = task.getResult();
+                                           if (document.exists()) {
+                                               SV sv = document.toObject(SV.class);
+                                               icheckAccExist.AccExist("Chào " +sv.getHo_Ten() );
+                                           } else {
+                                               icheckAccExist.AccNull("Vui Lòng Nhập Đầy Đủ Thông Tin");
+                                           }
+                                       }
+                                   });
+                       }
                     }
                 });
+
     }
 }
