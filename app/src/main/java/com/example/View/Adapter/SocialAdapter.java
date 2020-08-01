@@ -151,7 +151,7 @@ public class SocialAdapter extends RecyclerView.Adapter<SocialAdapter.ViewHolder
             holder.textViewNoiDungTHongBao.setText(socials.get(position).getThong_Bao());
             Log.d("ThongBao", "onBindViewHolder: " + socials.get(position).getThong_Bao());
             holder.textViewThoiGian.setText(socials.get(position).getThoi_Gian());
-            ReadDataGVMessage.getInstance().ReadGV(firebaseUser.getUid(), new ReadDataGVMessage.IreadDataGV() {
+            ReadDataGVMessage.getInstance().ReadGV(socials.get(position).getUid(), new ReadDataGVMessage.IreadDataGV() {
                 @Override
                 public void onImage(GV gv) {
                     holder.textViewHoTen.setText(gv.getHo_Ten());

@@ -201,8 +201,10 @@ public class UpdateNotificationActivity extends AppCompatActivity {
         builder.setNegativeButton("May Anh", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                MayAnh();
+//                MayAnh();
+                Toast.makeText(UpdateNotificationActivity.this, "Tính Năng Vẫn Còn Đang Phát Triển", Toast.LENGTH_SHORT).show();
             }
+
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();

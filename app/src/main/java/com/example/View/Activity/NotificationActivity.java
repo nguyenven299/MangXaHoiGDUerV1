@@ -148,7 +148,8 @@ public class NotificationActivity extends AppCompatActivity {
         builder.setNegativeButton("May Anh", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                MayAnh();
+//                MayAnh();
+                Toast.makeText(context, "Tính Năng Vẫn Còn Đang Phát Triển", Toast.LENGTH_SHORT).show();
             }
         });
         AlertDialog alertDialog = builder.create();
@@ -301,7 +302,6 @@ public class NotificationActivity extends AppCompatActivity {
             //xử lý ảnh lấy từ đt
             imageUri = data.getData();
             try {
-                ((BitmapDrawable)imageViewThongBao.getDrawable()).getBitmap().recycle();
                 selectBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
                 Glide.with(getApplicationContext()).asBitmap().load(selectBitmap).diskCacheStrategy(DiskCacheStrategy.NONE)
                         .skipMemoryCache(true).into(new SimpleTarget<Bitmap>(200, 200) {
@@ -311,7 +311,6 @@ public class NotificationActivity extends AppCompatActivity {
                         imageViewThongBao.setImageBitmap(resource);
                     }
                 });
-                imageViewThongBao.setImageBitmap(resized);
                 Uri uri = data.getData();
                 String path = uri.getPath();
                 String filename = path.substring(path.lastIndexOf("/") + 1);

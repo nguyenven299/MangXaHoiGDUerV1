@@ -226,6 +226,7 @@ public class ProfileFragment extends Fragment {
                     HinhDaiDien.setImageBitmap(resource);
                 }
             });
+            UploadImage();
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
