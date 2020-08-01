@@ -8,11 +8,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.example.Controller.FirebaseFirestore.CheckAccExist;
 import com.example.Controller.FirebaseFirestore.ReadDataGVMessage;
 import com.example.Controller.FirebaseFirestore.ReadDataSVMessage;
 import com.example.Controller.FirebaseFirestore.ShowInforGV;
@@ -73,6 +75,19 @@ public class NavigationActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(naListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new HomeFragment()).commit();
+        CheckAccExist.getInstance().CheckAccout(firebaseUser.getUid(), new CheckAccExist.IcheckAccExist() {
+            @Override
+            public void AccExist(String Exist) {
+                Toast.makeText(getApplication(), Exist, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void AccNull(String Null) {
+                Toast.makeText(getApplication(), Null, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplication(),InsertDataUserActivity.class);
+                startActivity(intent);
+            }
+        });
         DangThongBao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

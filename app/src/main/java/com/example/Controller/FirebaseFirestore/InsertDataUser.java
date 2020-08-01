@@ -62,8 +62,8 @@ public interface IinsertDatabase
         data.put(uid,firebaseUser.getUid());
         data.put(Email,SV1.getEmail());
         data.put("Uid",firebaseUser.getUid());
-        String id = firebaseUser.getUid();
-        firebaseFirestore.collection("SV").document(id).set(data)
+
+        firebaseFirestore.collection("SV").document(firebaseUser.getUid()).set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
