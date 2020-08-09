@@ -34,6 +34,7 @@ public class CheckAccExist {
                        {
                            GV gv = documentSnapshot.toObject(GV.class);
                            icheckAccExist.AccExist("Chào " +gv.getHo_Ten() );
+
                        }
                        else
                        {

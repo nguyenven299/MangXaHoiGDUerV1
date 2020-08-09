@@ -3,7 +3,6 @@ package com.example.View.UI;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,6 +24,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.example.Controller.FirebaseFirestore.CheckAccGVExist;
+import com.example.Controller.FirebaseFirestore.ReadDataGV;
+import com.example.Controller.FirebaseFirestore.ReadDataSV;
 import com.example.Model.GV;
 import com.example.Model.SV;
 import com.example.Model.Social;
@@ -124,81 +126,78 @@ public class ProfileFragment extends Fragment {
     }
 
     private void addControls() {
-        FirebaseFirestore rootRef1 = FirebaseFirestore.getInstance();
-        DocumentReference docIdRef1 = rootRef1.collection("GV").document(firebaseUser.getUid());
-        docIdRef1.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        CheckAccGVExist.getInstance().CheckAccGV(firebaseUser.getUid(), new CheckAccGVExist.IcheckAccGVExist() {
             @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        DocumentSnapshot documentSnapshot = task.getResult();
-                        gv = documentSnapshot.toObject(GV.class);
-                        HoTen.setText(gv.getHo_Ten());
-                        Email.setText(gv.getEmail());
-                        MaSo.setText(gv.getMSGV());
-                        SDT.setText(gv.getSDT());
-                        ChuyenNganh.setText(gv.getNganh_Day());
-                        if (!gv.getAnh_Dai_Dien().equals("default")) {
-                            Glide.with(getApplicationContext()).asBitmap().load(gv.getAnh_Dai_Dien()).into(new SimpleTarget<Bitmap>(200, 200) {
-                                @Override
-                                public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                                    resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
-                                    HinhDaiDien.setImageBitmap(resource);
-                                }
+            public void onExist(String Uid) {
 
-                                @Override
-                                public void onLoadCleared(@Nullable Drawable placeholder) {
-                                }
-                            });
-                        } else {
-                            HinhDaiDien.setImageResource(R.drawable.no_person);
-                        }
-                        if (HoTen != null && Email != null) {
-                            progressBar.setVisibility(View.GONE);
-                        }
+            }
+
+            @Override
+            public void onExistGV(GV gv) {
+
+            }
+        });
+        ReadDataGV.getInstance().ReadGV(firebaseUser.getUid(), new ReadDataGV.IreadDataGV() {
+            @Override
+            public void onImage(GV gv) {
+                Glide.with(getApplicationContext()).asBitmap().load(gv.getAnh_Dai_Dien()).into(new SimpleTarget<Bitmap>(200, 200) {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
+                        HinhDaiDien.setImageBitmap(resource);
                     }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+                    }
+                });
+            }
+
+            @Override
+            public void onImageNull(GV gv) {
+                HinhDaiDien.setImageResource(R.drawable.no_person);
+            }
+
+            @Override
+            public void onSuccess(GV gv) {
+                HoTen.setText(gv.getHo_Ten());
+                Email.setText(gv.getEmail());
+                MaSo.setText(gv.getMSGV());
+                SDT.setText(gv.getSDT());
+                ChuyenNganh.setText(gv.getNganh_Day());
+
+                if (HoTen != null && Email != null) {
+                    progressBar.setVisibility(View.GONE);
                 }
             }
         });
-        final DocumentReference docRef = firebaseFirestore.collection("SV").document(firebaseAuth.getUid());
-        listenerRegistration = docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+
+        ReadDataSV.getInstance().ReadSV(firebaseUser.getUid(), new ReadDataSV.IreadDataSV() {
             @Override
-            public void onEvent(@Nullable DocumentSnapshot snapshot,
-                                @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    return;
-                }
-
-                if (snapshot != null && snapshot.exists()) {
-                    String Ten = snapshot.getString("Ho_Ten");
-                    String Hinh_Dai_Dien = snapshot.getString("Anh_Dai_Dien");
-                    String Lop_Hoc = snapshot.getString("Lop_Hoc");
-                    String MSSV = snapshot.getString("MSSV");
-                    String Nganh_Hoc = snapshot.getString("Nganh_Hoc");
-                    String S_D_T = snapshot.getString("SDT");
-                    Email.setText(firebaseUser.getEmail());
-                    SDT.setText(S_D_T);
-                    MaSo.setText(MSSV);
-                    ChuyenNganh.setText(Nganh_Hoc);
-                    HoTen.setText(Ten);
-                    if (Hinh_Dai_Dien.equals("default")) {
-                        HinhDaiDien.setImageResource(R.drawable.no_person);
-                    } else {
-                        Glide.with(getApplicationContext()).asBitmap().load(Hinh_Dai_Dien).into(new SimpleTarget<Bitmap>(200, 200) {
-                            @Override
-                            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                                resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
-                                HinhDaiDien.setImageBitmap(resource);
-                            }
-                        });
-
+            public void onImage(SV sv) {
+                Glide.with(getApplicationContext()).asBitmap().load(sv.getAnh_Dai_Dien()).into(new SimpleTarget<Bitmap>(200, 200) {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        resource = Bitmap.createScaledBitmap(resource, (int) (resource.getWidth() * 0.8), (int) (resource.getHeight() * 0.8), true);
+                        HinhDaiDien.setImageBitmap(resource);
                     }
-                    if (HoTen != null && Email != null) {
-                        progressBar.setVisibility(View.GONE);
-                    }
-                } else {
+                });
+            }
 
+            @Override
+            public void onImageNull(SV sv) {
+                HinhDaiDien.setImageResource(R.drawable.no_person);
+            }
+
+            @Override
+            public void onSuccess(SV SV) {
+                Email.setText(firebaseUser.getEmail());
+                SDT.setText(SV.getSDT());
+                MaSo.setText(SV.getMSSV());
+                ChuyenNganh.setText(SV.getNganh_Hoc());
+                HoTen.setText(SV.getHo_Ten());
+                if (HoTen != null && Email != null) {
+                    progressBar.setVisibility(View.GONE);
                 }
             }
         });
@@ -270,6 +269,7 @@ public class ProfileFragment extends Fragment {
                                                     Toast.makeText(getContext(), "Thay Đổi Ảnh Thất Bại", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
+
                                         } else {
                                             firebaseFirestore.collection("SV").document(firebaseUser.getUid())
                                                     .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

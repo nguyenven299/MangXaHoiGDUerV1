@@ -27,6 +27,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.example.Controller.FirebaseFirestore.ReadDataGV;
 import com.example.Controller.FirebaseRealtime.SocialNetwork.GetNotificationForUpdate;
 import com.example.Controller.FirebaseRealtime.SocialNetwork.ReadSocialNetwork;
 import com.example.Controller.FirebaseRealtime.SocialNetwork.SendSocialNetwork;
@@ -56,6 +57,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -70,9 +72,10 @@ public class UpdateNotificationActivity extends AppCompatActivity {
     private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
     private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     private Social social = new Social();
-
-    Calendar calendar = Calendar.getInstance();
-    String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
+    private Calendar calendar = Calendar.getInstance();
+    private SimpleDateFormat dateFormat;
+    private String date;
+    //    String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
     private String urlImage;
     private String textAddress = "";
     private ProgressBar progressBar;
@@ -91,7 +94,8 @@ public class UpdateNotificationActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         Intent intent = getIntent();
         keySocial = intent.getStringExtra("keySocial");
-
+        dateFormat = new SimpleDateFormat("HH:mm MM-dd-yyyy");
+        date = dateFormat.format(calendar.getTime());
         buttonHuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,7 +146,7 @@ public class UpdateNotificationActivity extends AppCompatActivity {
             @Override
             public void ImageNull(String ThongBao, String HinhThongBao) {
                 editTextThongBao.setText(ThongBao);
-                imageViewThongBao.setVisibility(View.INVISIBLE);
+//                imageViewThongBao.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -231,45 +235,39 @@ public class UpdateNotificationActivity extends AppCompatActivity {
                             while (!urlTask.isSuccessful()) ;
                             urlImage = urlTask.getResult().toString();
                             social.setHinh_Thong_Bao(urlImage);
-                            if (editTextThongBao.getText().toString().equals(null)) {
-                                Toast.makeText(UpdateNotificationActivity.this, "Vui Lòng Nhập Thông Báo", Toast.LENGTH_SHORT).show();
-                            } else {
-                                FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
-                                DocumentReference docIdRef = rootRef.collection("GV").document(firebaseUser.getUid());
-                                docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                        if (task.isSuccessful()) {
-                                            DocumentSnapshot document = task.getResult();
-                                            if (document.exists()) {
-                                                GV gv = document.toObject(GV.class);
-                                                social.setUid(firebaseUser.getUid());
-                                                social.setHinh_Dai_Dien(gv.getAnh_Dai_Dien());
-                                                social.setThong_Bao(editTextThongBao.getText().toString());
-                                                social.setThoi_Gian(currentDate);
-                                                social.setKey(keySocial);
-                                                UpdateSocialNetwork.getInstance().UpdateSocial(keySocial, social, new UpdateSocialNetwork.IupdateSocialNetwork() {
-                                                    @Override
-                                                    public void onSuccess(String Success) {
-                                                        Toast.makeText(UpdateNotificationActivity.this, Success, Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(UpdateNotificationActivity.this, NavigationActivity.class);
-                                                        startActivity(intent);
-                                                        finish();
-                                                    }
 
-                                                    @Override
-                                                    public void onFail(String Fail) {
-                                                        Toast.makeText(UpdateNotificationActivity.this, Fail, Toast.LENGTH_SHORT).show();
-                                                    }
-                                                });
+                            ReadDataGV.getInstance().ReadGV(firebaseUser.getUid(), new ReadDataGV.IreadDataGV() {
+                                @Override
+                                public void onImage(GV gv) {
 
-                                            }
+                                }
+
+                                @Override
+                                public void onImageNull(GV gv) {
+
+                                }
+
+                                @Override
+                                public void onSuccess(GV gv) {
+                                    UpdateSocialNetwork.getInstance().UpdateSocial(keySocial, social, new UpdateSocialNetwork.IupdateSocialNetwork() {
+                                        @Override
+                                        public void onSuccess(String Success) {
+                                            Toast.makeText(UpdateNotificationActivity.this, Success, Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(UpdateNotificationActivity.this, NavigationActivity.class);
+                                            startActivity(intent);
+                                            finish();
                                         }
-                                    }
-                                });
+
+                                        @Override
+                                        public void onFail(String Fail) {
+                                            Toast.makeText(UpdateNotificationActivity.this, Fail, Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+                            });
                                 Toast.makeText(UpdateNotificationActivity.this, "Đăng Thông Báo Thành Công", Toast.LENGTH_SHORT).show();
 
-                            }
+
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -278,68 +276,62 @@ public class UpdateNotificationActivity extends AppCompatActivity {
                             Toast.makeText(UpdateNotificationActivity.this, "Lỗi ", Toast.LENGTH_SHORT).show();
                         }
                     });
-        } else {
+        }
+        else {
+
             GetNotificationForUpdate.getInstance().GetImage(keySocial, new GetNotificationForUpdate.IgetNotificationForUpdate() {
                 @Override
                 public void ImageNull(String ThongBao, final String HinhThongBao) {
-                    FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
-                    DocumentReference docIdRef = rootRef.collection("GV").document(firebaseUser.getUid());
-                    docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    ReadDataGV.getInstance().ReadGV(firebaseUser.getUid(), new ReadDataGV.IreadDataGV() {
                         @Override
-                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                            if (task.isSuccessful()) {
-                                DocumentSnapshot document = task.getResult();
-                                if (document.exists()) {
-                                    DocumentSnapshot documentSnapshot = task.getResult();
-                                    Log.d("danh sach", "onComplete: " + documentSnapshot.getData());
-                                    GV gv = document.toObject(GV.class);
-                                    social.setUid(firebaseUser.getUid());
-                                    social.setHinh_Dai_Dien(gv.getAnh_Dai_Dien());
-                                    social.setThong_Bao(editTextThongBao.getText().toString());
-                                    social.setThoi_Gian(currentDate);
-                                    social.setHinh_Thong_Bao("default");
-                                    social.setKey(keySocial);
-                                    UpdateSocialNetwork.getInstance().UpdateSocial(keySocial, social, new UpdateSocialNetwork.IupdateSocialNetwork() {
-                                        @Override
-                                        public void onSuccess(String Success) {
-                                            Toast.makeText(UpdateNotificationActivity.this, Success, Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(UpdateNotificationActivity.this, NavigationActivity.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }
-
-                                        @Override
-                                        public void onFail(String Fail) {
-                                            Toast.makeText(UpdateNotificationActivity.this, Fail, Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
-
+                        public void onImage(GV gv) {
+                        }
+                        @Override
+                        public void onImageNull(GV gv) {
+                        }
+                        @Override
+                        public void onSuccess(GV gv) {
+                            social.setUid(firebaseUser.getUid());
+                            social.setHinh_Dai_Dien(gv.getAnh_Dai_Dien());
+                            social.setThong_Bao(editTextThongBao.getText().toString());
+                            social.setThoi_Gian(date);
+                            social.setHinh_Thong_Bao(HinhThongBao);
+                            social.setKey(keySocial);
+                            UpdateSocialNetwork.getInstance().UpdateSocial(keySocial, social, new UpdateSocialNetwork.IupdateSocialNetwork() {
+                                @Override
+                                public void onSuccess(String Success) {
+                                    Toast.makeText(UpdateNotificationActivity.this, Success, Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(UpdateNotificationActivity.this, NavigationActivity.class);
+                                    startActivity(intent);
+                                    finish();
                                 }
-                            }
+                                @Override
+                                public void onFail(String Fail) {
+                                    Toast.makeText(UpdateNotificationActivity.this, Fail, Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
                     });
                 }
 
                 @Override
                 public void Image(String ThongBao, final String HinhThongBao) {
-                    FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
-                    DocumentReference docIdRef = rootRef.collection("GV").document(firebaseUser.getUid());
-                    docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    ReadDataGV.getInstance().ReadGV(firebaseUser.getUid(), new ReadDataGV.IreadDataGV() {
                         @Override
-                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                            if (task.isSuccessful()) {
-                                DocumentSnapshot document = task.getResult();
-                                if (document.exists()) {
-                                    DocumentSnapshot documentSnapshot = task.getResult();
-                                    Log.d("danh sach", "onComplete: " + documentSnapshot.getData());
-                                    GV gv = document.toObject(GV.class);
-                                    social.setUid(firebaseUser.getUid());
-                                    social.setHinh_Dai_Dien(gv.getAnh_Dai_Dien());
-                                    social.setThong_Bao(editTextThongBao.getText().toString());
-                                    social.setThoi_Gian(currentDate);
-
-                                    social.setKey(keySocial);
-                                    UpdateSocialNetwork.getInstance().UpdateSocial(keySocial, social, new UpdateSocialNetwork.IupdateSocialNetwork() {
+                        public void onImage(GV gv) {
+                        }
+                        @Override
+                        public void onImageNull(GV gv) {
+                        }
+                        @Override
+                        public void onSuccess(GV gv) {
+                            social.setUid(firebaseUser.getUid());
+                            social.setHinh_Dai_Dien(gv.getAnh_Dai_Dien());
+                            social.setThong_Bao(editTextThongBao.getText().toString());
+                            social.setThoi_Gian(date);
+                            social.setHinh_Thong_Bao(HinhThongBao);
+                            social.setKey(keySocial);
+                            UpdateSocialNetwork.getInstance().UpdateSocial(keySocial, social, new UpdateSocialNetwork.IupdateSocialNetwork() {
                                         @Override
                                         public void onSuccess(String Success) {
                                             Toast.makeText(UpdateNotificationActivity.this, Success, Toast.LENGTH_SHORT).show();
@@ -353,9 +345,6 @@ public class UpdateNotificationActivity extends AppCompatActivity {
                                             Toast.makeText(UpdateNotificationActivity.this, Fail, Toast.LENGTH_SHORT).show();
                                         }
                                     });
-
-                                }
-                            }
                         }
                     });
                 }

@@ -11,7 +11,7 @@
         android:id="@+id/AnhDaiDien"
         android:layout_width="@dimen/dp50"
         android:layout_height="@dimen/dp50"
-        android:src="@drawable/no_person"
+
         android:layout_marginLeft="@dimen/dp30"
         android:layout_marginTop="@dimen/dp5"
         app:civ_border_overlay="true"

@@ -1,7 +1,6 @@
 package com.example.View.Activity;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -18,24 +17,19 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.Controller.FirebaseFirestore.ShowInforGV;
-import com.example.Controller.FirebaseFirestore.ShowInforSV;
+import com.example.Controller.FirebaseFirestore.ReadDataGV;
+import com.example.Controller.FirebaseFirestore.ReadDataSV;
 import com.example.Controller.FirebaseFirestore.UpdateDataGV;
 import com.example.Controller.FirebaseFirestore.UpdateDataSV;
 import com.example.Model.GV;
 import com.example.Model.SV;
 import com.example.mxh_gdu3.R;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.ListenerRegistration;
 
 public class UpdateUserActivity extends AppCompatActivity {
     private TextView textView, textViewNgangHoc, textViewLopHoc;
@@ -142,17 +136,59 @@ public class UpdateUserActivity extends AppCompatActivity {
     }
 
     private void HienThiThongTin() {
-        ShowInforSV.getInstance().ShowSV(new ShowInforSV.IshowInforSV() {
+//        ShowInforSV.getInstance().ShowSV(new ShowInforSV.IshowInforSV() {
+//            @Override
+//            public void onSuccess(SV sv) {
+//                editTextSDT.setText(sv.getSDT());
+//                editTextMSSV.setText(sv.getMSSV());
+//                editTextHoTen.setText(sv.getHo_Ten());
+//            }
+//        });
+//        ShowInforGV.getInstance().ShowGV(new ShowInforGV.IshowInforGV() {
+//            @Override
+//            public void onSuccess(GV gv) {
+//                editTextSDT.setText(gv.getSDT());
+//                editTextMSSV.setText(gv.getMSGV());
+//                editTextHoTen.setText(gv.getHo_Ten());
+//                textViewLopHoc.setVisibility(View.GONE);
+//                spinnerLopHoc.setVisibility(View.GONE);
+//                textViewNgangHoc.setText("Chuyên Ngành");
+//            }
+//        });
+        ReadDataSV.getInstance().ReadSV(firebaseUser.getUid(), new ReadDataSV.IreadDataSV() {
             @Override
-            public void onSuccess(SV sv) {
+            public void onImage(com.example.Model.SV sv) {
+
+            }
+
+            @Override
+            public void onImageNull(com.example.Model.SV sv) {
+
+            }
+
+            @Override
+            public void onSuccess(com.example.Model.SV sv) {
                 editTextSDT.setText(sv.getSDT());
                 editTextMSSV.setText(sv.getMSSV());
                 editTextHoTen.setText(sv.getHo_Ten());
+                textViewLopHoc.setVisibility(View.GONE);
+                spinnerLopHoc.setVisibility(View.GONE);
+                textViewNgangHoc.setText("Chuyên Ngành");
             }
         });
-        ShowInforGV.getInstance().ShowGV(new ShowInforGV.IshowInforGV() {
+        ReadDataGV.getInstance().ReadGV(firebaseUser.getUid(), new ReadDataGV.IreadDataGV() {
             @Override
-            public void onSuccess(GV gv) {
+            public void onImage(com.example.Model.GV gv) {
+
+            }
+
+            @Override
+            public void onImageNull(com.example.Model.GV gv) {
+
+            }
+
+            @Override
+            public void onSuccess(com.example.Model.GV gv) {
                 editTextSDT.setText(gv.getSDT());
                 editTextMSSV.setText(gv.getMSGV());
                 editTextHoTen.setText(gv.getHo_Ten());

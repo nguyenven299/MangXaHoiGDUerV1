@@ -34,6 +34,7 @@ public class GetNotificationForUpdate {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
 
 
+//                    Social social1 = dataSnapshot.getValue(Social.class);
                     Social social1 = dataSnapshot.getValue(Social.class);
                     if (social1.getHinh_Thong_Bao().equals("default")) {
                         igetNotificationForUpdate.ImageNull(social1.getThong_Bao(), social1.getHinh_Thong_Bao());

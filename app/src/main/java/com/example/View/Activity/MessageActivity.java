@@ -22,8 +22,8 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.Controller.FirebaseRealtime.Chat.ReadMessage;
 import com.example.Controller.FirebaseRealtime.Chat.SendMessage;
-import com.example.Controller.FirebaseFirestore.ReadDataGVMessage;
-import com.example.Controller.FirebaseFirestore.ReadDataSVMessage;
+import com.example.Controller.FirebaseFirestore.ReadDataGV;
+import com.example.Controller.FirebaseFirestore.ReadDataSV;
 import com.example.Model.GV;
 import com.example.Model.SV;
 import com.example.View.Adapter.MessageAdapter;
@@ -153,7 +153,7 @@ public class MessageActivity extends AppCompatActivity {
         }
     }
     private void thongTinGV(final String iduser) {
-        ReadDataGVMessage.getInstance().ReadGV(iduser, new ReadDataGVMessage.IreadDataGV() {
+        ReadDataGV.getInstance().ReadGV(iduser, new ReadDataGV.IreadDataGV() {
             @Override
             public void onImageNull(GV gv) {
                 HinhDaiDien.setImageResource(R.drawable.no_person);
@@ -172,12 +172,15 @@ public class MessageActivity extends AppCompatActivity {
                 });
                 docTinNhan(firebaseUser.getUid(), iduser, gv.getAnh_Dai_Dien());
             }
+            @Override
+            public void onSuccess(com.example.Model.GV gv) {
 
+            }
         });
     }
 
     private void thongTinSV(final String iduser) {
-        ReadDataSVMessage.getInstance().ReadSV(iduser, new ReadDataSVMessage.IreadDataSV() {
+        ReadDataSV.getInstance().ReadSV(iduser, new ReadDataSV.IreadDataSV() {
             @Override
             public void onImage(SV sv) {
                 HoTen.setText(sv.getHo_Ten());
@@ -196,6 +199,10 @@ public class MessageActivity extends AppCompatActivity {
                 HinhDaiDien.setImageResource(R.drawable.no_person);
                 HoTen.setText(sv.getHo_Ten());
                 docTinNhan(firebaseUser.getUid(), iduser, sv.getAnh_Dai_Dien());
+            }
+            @Override
+            public void onSuccess(SV sv) {
+
             }
         });
 

@@ -50,6 +50,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class NotificationActivity extends AppCompatActivity {
@@ -70,9 +71,10 @@ public class NotificationActivity extends AppCompatActivity {
     private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     private GV gV;
     private Social social = new Social();
-
-    Calendar calendar = Calendar.getInstance();
-    String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
+    private Calendar calendar = Calendar.getInstance();
+    private SimpleDateFormat dateFormat;
+    private String date;
+//    String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
     private String urlImage;
     private String textAddress = "";
     private ProgressBar progressBar;
@@ -87,6 +89,8 @@ public class NotificationActivity extends AppCompatActivity {
         buttonDongY = findViewById(R.id.buttonDongY);
         buttonHuy = findViewById(R.id.buttonHuy);
         progressBar = findViewById(R.id.progressBar);
+        dateFormat = new SimpleDateFormat("HH:mm MM-dd-yyyy");
+        date = dateFormat.format(calendar.getTime());
 
         Log.d("nguoi dung", "onCreate: " + firebaseUser.getUid());
         buttonHuy.setOnClickListener(new View.OnClickListener() {
@@ -193,7 +197,7 @@ public class NotificationActivity extends AppCompatActivity {
                                                 social.setUid(firebaseUser.getUid());
                                                 social.setHinh_Dai_Dien(gv.getAnh_Dai_Dien());
                                                 social.setThong_Bao(editTextThongBao.getText().toString());
-                                                social.setThoi_Gian(currentDate);
+                                                social.setThoi_Gian(date);
 //                                                sendSocialNetwork.SendSocialNetwork(social);
                                                 SendSocialNetwork.getInstance().SendSocialNetwork2(social, new SendSocialNetwork.ISendSocicalNetwork2() {
                                                     @Override
@@ -238,7 +242,7 @@ public class NotificationActivity extends AppCompatActivity {
                             social.setUid(firebaseUser.getUid());
                             social.setHinh_Dai_Dien(gv.getAnh_Dai_Dien());
                             social.setThong_Bao(editTextThongBao.getText().toString());
-                            social.setThoi_Gian(currentDate);
+                            social.setThoi_Gian(date);
                             social.setHinh_Thong_Bao("default");
                             SendSocialNetwork.getInstance().SendSocialNetwork2(social, new SendSocialNetwork.ISendSocicalNetwork2() {
                                 @Override
