@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\giadinheduMXH\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw500dp-v13\\values-sw500dp-v13.xml",
+            "outputFile": "E:\\AndroidStudio\\DoAnMXHGDU\\giadinheduMXH\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw500dp-v13\\values-sw500dp-v13.xml",
             "map": [
                 {
-                    "source": "D:\\giadinheduMXH\\app\\src\\main\\res\\values-sw500dp\\dimens.xml",
+                    "source": "E:\\AndroidStudio\\DoAnMXHGDU\\giadinheduMXH\\app\\src\\main\\res\\values-sw500dp\\dimens.xml",
                     "from": {
                         "startLines": "5,31,33,10,30,35,42,27,21,34,20,25,37,36,44,23,46,6,22,8,38,7,13,12,24,32,16,14,28,19,15,17,26,40,39,18,9,4,45,41,3,47,2,43,29,11",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

@@ -1806,6 +1806,7 @@ id buttonDongY
 id buttonGui
 id buttonHuy
 id buttonPanel
+id buttonTroVe
 id buttonXoa
 id cancel_action
 id cancel_button
@@ -1893,6 +1894,8 @@ id guideline18
 id guideline19
 id guideline2
 id guideline20
+id guideline21
+id guideline22
 id guideline3
 id guideline4
 id guideline5

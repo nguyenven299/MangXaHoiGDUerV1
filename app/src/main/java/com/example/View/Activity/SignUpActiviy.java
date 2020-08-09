@@ -2,9 +2,13 @@ package com.example.View.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,7 +29,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignUpActiviy extends AppCompatActivity {
     private Button buttonDangKy, buttonHuy;
     private EditText editTextEmail, editTextMatKhau, editTextNhapLaiMatKhau;
-    private FirebaseAuth firebaseAuth =FirebaseAuth.getInstance();
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private CheckBox checkBox;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,7 +47,8 @@ public class SignUpActiviy extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextMatKhau = findViewById(R.id.editTextMatKhau);
         editTextNhapLaiMatKhau = findViewById(R.id.editTextNhapLaiMatKhau);
-
+        checkBox = findViewById(R.id.checkbox);
+        editTextEmail.requestFocus();
         buttonHuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +59,16 @@ public class SignUpActiviy extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 kiemTraEditText();
+            }
+        });
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    editTextMatKhau.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
+                    editTextMatKhau.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
             }
         });
     }

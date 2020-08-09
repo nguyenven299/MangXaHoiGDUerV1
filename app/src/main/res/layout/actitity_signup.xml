@@ -47,28 +47,30 @@
         android:ems="10"
         android:hint="Nhập Lại Mật Khẩu"
         android:inputType="textPassword"
+
         android:paddingLeft="@dimen/dp15"
         android:textSize="@dimen/dp20"
-
-        app:layout_constraintBottom_toTopOf="@+id/buttonDangKy"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextMatKhau" />
 
     <Button
         android:id="@+id/buttonDangKy"
-        android:padding="@dimen/dp15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_border"
+        android:padding="@dimen/dp15"
         android:text="Đăng Ký"
         android:textSize="@dimen/dp20"
 
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonHuy"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNhapLaiMatKhau" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox" />
 
     <EditText
         android:id="@+id/editTextMatKhau"
@@ -78,11 +80,12 @@
         android:ems="10"
         android:hint="Nhập Mật Khẩu"
         android:inputType="textPassword"
+
         android:paddingLeft="@dimen/dp15"
         android:textSize="@dimen/dp20"
-
         app:layout_constraintBottom_toTopOf="@+id/editTextNhapLaiMatKhau"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
@@ -91,33 +94,31 @@
         android:layout_width="@dimen/dp300"
         android:layout_height="@dimen/dp50"
         android:background="@drawable/border"
-        android:ems="10"
+
         android:hint="Nhập Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="@dimen/dp15"
         android:textSize="@dimen/dp20"
-
         app:layout_constraintBottom_toTopOf="@+id/editTextMatKhau"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Appbar" />
+        app:layout_constraintTop_toTopOf="@+id/guideline22" />
 
     <Button
         android:id="@+id/buttonHuy"
-        android:padding="@dimen/dp15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
         android:background="@drawable/button_border3"
-        android:textSize="@dimen/dp20"
-
+        android:padding="@dimen/dp15"
         android:text="Hủy"
+
+        android:textSize="@dimen/dp20"
         app:layout_constraintBottom_toBottomOf="@+id/buttonDangKy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonDangKy"
-        app:layout_constraintTop_toTopOf="@+id/buttonDangKy"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/buttonDangKy" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -125,6 +126,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.84" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hiển Thị Mật Khẩu"
+        android:textColor="#FFFF"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDangKy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNhapLaiMatKhau"></androidx.appcompat.widget.AppCompatCheckBox>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

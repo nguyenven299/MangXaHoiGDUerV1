@@ -18,7 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgetPasswordActivity extends AppCompatActivity {
-    private FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
 
     @Override
@@ -33,7 +33,13 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         textView.setText("Gia Dinh University");
         final EditText editTextEmail = findViewById(R.id.editTextEmail);
         Button buttonDongY = findViewById(R.id.buttonDongY);
-
+        Button buttonTroVe = findViewById(R.id.buttonTroVe);
+        buttonTroVe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         buttonDongY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +26,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
     private Button buttonDongY, buttonHuy;
     private EditText editTextMatKhau, editTextMatKhauNhapLai;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private CheckBox checkBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.texticon);
         imageView.setImageResource(R.drawable.logo_gdu);
         textView.setText("Gia Dinh University");
+        checkBox = findViewById(R.id.checkbox);
         buttonHuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,8 +53,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 {
-                    if(editTextMatKhauNhapLai.getText().toString().trim().equals(editTextMatKhau.getText().toString().trim()))
-                    {
+                    if (editTextMatKhauNhapLai.getText().toString().trim().equals(editTextMatKhau.getText().toString().trim())) {
                         user.updatePassword(editTextMatKhau.getText().toString().trim())
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
@@ -61,13 +66,24 @@ public class ResetPasswordActivity extends AppCompatActivity {
                                         }
                                     }
                                 });
-                    }
-                    else
-                    {
+                    } else {
                         editTextMatKhauNhapLai.setError("Mật Khẩu Không Trùng Khớp");
                     }
                 }
 
+            }
+        });
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    editTextMatKhau.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    editTextMatKhauNhapLai.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
+                    editTextMatKhau.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    editTextMatKhauNhapLai.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
             }
         });
     }

@@ -47,7 +47,7 @@
         android:minHeight="@dimen/dp40"
         android:paddingLeft="@dimen/dp50"
         android:textSize="@dimen/dp20"
-        app:layout_constraintBottom_toTopOf="@+id/buttonDongY"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMatKhau"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/checkbox"></Button>
 
     <TextView
         android:id="@+id/textViewQuenMK"
@@ -99,7 +99,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonDangKy" />
 
@@ -110,5 +110,16 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.92" />
 
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hiển Thị Mật Khẩu"
+        android:textColor="#FFFF"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDongY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMatKhau"></androidx.appcompat.widget.AppCompatCheckBox>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
