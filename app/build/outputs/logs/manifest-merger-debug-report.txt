@@ -4,6 +4,7 @@ ADDED from E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:2:1-6
 INJECTED from E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:2:1-63:12
 INJECTED from E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:2:1-63:12
 INJECTED from E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml:2:1-63:12
+MERGED from [com.github.chrisbanes:PhotoView:2.3.0] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\66eb7ca27e48fb681786ff9d374ffe1b\jetified-PhotoView-2.3.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.android:facebook-login:7.1.0] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\e7590602cb1d1533d2ba25e679897a4d\jetified-facebook-login-7.1.0\AndroidManifest.xml:21:1-31:12
 MERGED from [com.hbb20:ccp:2.3.8] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\0047d9b53a95b195f3a927f0e07e627c\jetified-ccp-2.3.8\AndroidManifest.xml:2:1-16:12
 MERGED from [androidx.navigation:navigation-ui:2.3.0] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\58f93ffe82ae1a941a2034ef696f34ae\navigation-ui-2.3.0\AndroidManifest.xml:17:1-24:12
@@ -336,6 +337,8 @@ uses-sdk
 INJECTED from E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml
 INJECTED from E:\AndroidStudio\giadinheduMXH\app\src\main\AndroidManifest.xml
+MERGED from [com.github.chrisbanes:PhotoView:2.3.0] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\66eb7ca27e48fb681786ff9d374ffe1b\jetified-PhotoView-2.3.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.chrisbanes:PhotoView:2.3.0] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\66eb7ca27e48fb681786ff9d374ffe1b\jetified-PhotoView-2.3.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.android:facebook-login:7.1.0] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\e7590602cb1d1533d2ba25e679897a4d\jetified-facebook-login-7.1.0\AndroidManifest.xml:24:5-26:41
 MERGED from [com.facebook.android:facebook-login:7.1.0] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\e7590602cb1d1533d2ba25e679897a4d\jetified-facebook-login-7.1.0\AndroidManifest.xml:24:5-26:41
 MERGED from [com.hbb20:ccp:2.3.8] C:\Users\nguye\.gradle\caches\transforms-2\files-2.1\0047d9b53a95b195f3a927f0e07e627c\jetified-ccp-2.3.8\AndroidManifest.xml:7:5-9:41

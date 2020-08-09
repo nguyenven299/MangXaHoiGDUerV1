@@ -29,6 +29,7 @@ import com.example.Model.Social;
 import com.example.View.Activity.MessageActivity;
 import com.example.View.Activity.UpdateNotificationActivity;
 import com.example.mxh_gdu3.R;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -185,7 +186,8 @@ public class SocialAdapter extends RecyclerView.Adapter<SocialAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imageViewThongBao, imageViewHinhDaiDien;
+        public ImageView  imageViewHinhDaiDien;
+        public PhotoView imageViewThongBao;
         public TextView textViewHoTen, textViewThoiGian, textViewNoiDungTHongBao;
         public Button buttonXoa;
 

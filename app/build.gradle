@@ -37,7 +37,7 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     implementation 'com.google.firebase:firebase-database:19.3.1'
     implementation 'com.google.firebase:firebase-firestore:21.5.0'
     androidTestImplementation 'junit:junit:4.13'
