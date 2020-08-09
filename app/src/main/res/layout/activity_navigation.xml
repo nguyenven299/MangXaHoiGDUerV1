@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
-            android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:theme="@style/Platform.MaterialComponents.Light"
             app:popupTheme="@style/MenuStyle">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -40,10 +40,10 @@
                 android:layout_alignParentRight="true"
                 android:layout_gravity="center"
                 android:background="@drawable/button_border"
-                android:visibility="gone"
                 android:paddingHorizontal="@dimen/dp10"
                 android:text="Đăng Thông Báo"
-                android:textColor="#FFF"></Button>
+                android:textColor="#FFF"
+                android:visibility="gone"></Button>
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -64,6 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@color/cardview_light_background"
         app:menu="@menu/bottom_nav_menu" />
 
 

@@ -4,7 +4,7 @@
             "outputFile": "E:\\AndroidStudio\\giadinheduMXH\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rBR\\values-pt-rBR.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\nguye\\.gradle\\caches\\transforms-2\\files-2.1\\bcfc0b80df78591183083cc148e1cf2c\\core-1.1.0\\res\\values-pt-rBR\\values-pt-rBR.xml",
+                    "source": "C:\\Users\\nguye\\.gradle\\caches\\transforms-2\\files-2.1\\e43e6f6074433de2da7ec31b7cf57664\\core-1.3.0\\res\\values-pt-rBR\\values-pt-rBR.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -18,6 +18,23 @@
                         "startOffsets": "5911",
                         "endColumns": "100",
                         "endOffsets": "6007"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\nguye\\.gradle\\caches\\transforms-2\\files-2.1\\58f93ffe82ae1a941a2034ef696f34ae\\navigation-ui-2.3.0\\res\\values-pt-rBR\\values-pt-rBR.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,167",
+                        "endColumns": "111,119",
+                        "endOffsets": "162,282"
+                    },
+                    "to": {
+                        "startLines": "47,48",
+                        "startColumns": "4,4",
+                        "startOffsets": "5594,5706",
+                        "endColumns": "111,119",
+                        "endOffsets": "5701,5821"
                     }
                 },
                 {
@@ -35,23 +52,6 @@
                         "startOffsets": "2843,2950,3130,3259,3369,3595,3727,3879,4217,4446,4556,4751,4883,5099,5286,5385,5481",
                         "endColumns": "106,179,128,109,225,131,151,133,228,109,194,131,215,186,98,95,112",
                         "endOffsets": "2945,3125,3254,3364,3590,3722,3874,4008,4441,4551,4746,4878,5094,5281,5380,5476,5589"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\nguye\\.gradle\\caches\\transforms-2\\files-2.1\\fd413a98a16d25cfdd4516ab406bf6c6\\navigation-ui-2.0.0\\res\\values-pt-rBR\\values-pt-rBR.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,167",
-                        "endColumns": "111,119",
-                        "endOffsets": "162,282"
-                    },
-                    "to": {
-                        "startLines": "47,48",
-                        "startColumns": "4,4",
-                        "startOffsets": "5594,5706",
-                        "endColumns": "111,119",
-                        "endOffsets": "5701,5821"
                     }
                 },
                 {
