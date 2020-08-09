@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MXH_GDU2.iml" filepath="$PROJECT_DIR$/MXH_GDU2.iml" group="MXH_GDU2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MXH_GDU2.iml" filepath="$PROJECT_DIR$/.idea/modules/MXH_GDU2.iml" group="MXH_GDU2" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="MXH_GDU2/app" />
     </modules>
   </component>

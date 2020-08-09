@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\AndroidStudio\\DoAnMXHGDU\\giadinheduMXH\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es-rUS\\values-es-rUS.xml",
+            "outputFile": "E:\\AndroidStudio\\giadinheduMXH\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es-rUS\\values-es-rUS.xml",
             "map": [
                 {
                     "source": "C:\\Users\\nguye\\.gradle\\caches\\transforms-2\\files-2.1\\fd413a98a16d25cfdd4516ab406bf6c6\\navigation-ui-2.0.0\\res\\values-es-rUS\\values-es-rUS.xml",
