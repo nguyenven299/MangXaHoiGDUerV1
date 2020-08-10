@@ -2,6 +2,8 @@ package com.example.Controller.FirebaseRealtime.Chat;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,10 +26,12 @@ public class SendMessage {
     }
 
     public interface IsendMessage {
+        void onSuccess(String Success);
 
+        void onFail(String Fail);
     }
 
-    public void SendMessageRealTime(String sender, final String receiver, String message, IsendMessage isendMessage) {
+    public void SendMessageRealTime(String sender, final String receiver, String message, final IsendMessage isendMessage) {
         Calendar calendar = Calendar.getInstance();
         String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -38,7 +42,18 @@ public class SendMessage {
         hashMap.put("receiver", receiver);
         hashMap.put("message", message);
         hashMap.put("thoi_gian", currentDate);
-        databaseReference.child("Chats").push().setValue(hashMap);
+        databaseReference.child("Chats").push().setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                isendMessage.onSuccess("Gửi tin nhắn thành công");
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        isendMessage.onFail("Gửi tin nhắn thất bại");
+                    }
+                });
 
         final DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference("ChatList")
                 .child(firebaseUser.getUid()).child(receiver);

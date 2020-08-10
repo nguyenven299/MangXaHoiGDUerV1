@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\giadinheduMXH\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-id\\values-id.xml",
+            "outputFile": "E:\\AndroidStudio\\giadinheduMXH\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-id\\values-id.xml",
             "map": [
                 {
                     "source": "C:\\Users\\nguye\\.gradle\\caches\\transforms-2\\files-2.1\\fb4c055fcf2a80b72230e4a02aaad375\\jetified-facebook-common-7.1.0\\res\\values-id\\values-id.xml",

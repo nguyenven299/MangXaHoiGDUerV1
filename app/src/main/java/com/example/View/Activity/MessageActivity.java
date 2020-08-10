@@ -63,6 +63,7 @@ public class MessageActivity extends AppCompatActivity {
     private String userid;
     private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -152,6 +153,7 @@ public class MessageActivity extends AppCompatActivity {
             thongTinGV(useridGV);
         }
     }
+
     private void thongTinGV(final String iduser) {
         ReadDataGV.getInstance().ReadGV(iduser, new ReadDataGV.IreadDataGV() {
             @Override
@@ -160,6 +162,7 @@ public class MessageActivity extends AppCompatActivity {
                 HoTen.setText(gv.getHo_Ten());
                 docTinNhan(firebaseUser.getUid(), iduser, gv.getAnh_Dai_Dien());
             }
+
             @Override
             public void onImage(GV gv) {
                 HoTen.setText(gv.getHo_Ten());
@@ -172,6 +175,7 @@ public class MessageActivity extends AppCompatActivity {
                 });
                 docTinNhan(firebaseUser.getUid(), iduser, gv.getAnh_Dai_Dien());
             }
+
             @Override
             public void onSuccess(com.example.Model.GV gv) {
 
@@ -200,6 +204,7 @@ public class MessageActivity extends AppCompatActivity {
                 HoTen.setText(sv.getHo_Ten());
                 docTinNhan(firebaseUser.getUid(), iduser, sv.getAnh_Dai_Dien());
             }
+
             @Override
             public void onSuccess(SV sv) {
 
@@ -223,9 +228,15 @@ public class MessageActivity extends AppCompatActivity {
     private void sendMessage(String sender, final String receiver, String message, String tokenUserId) {
         SendMessage.getInstance().SendMessageRealTime(sender, receiver, message, new SendMessage.IsendMessage() {
             @Override
-            public int hashCode() {
-                return super.hashCode();
+            public void onSuccess(String Success) {
+
             }
+
+            @Override
+            public void onFail(String Fail) {
+                Toast.makeText(MessageActivity.this,Fail , Toast.LENGTH_SHORT).show();
+            }
+
         });
     }
 
