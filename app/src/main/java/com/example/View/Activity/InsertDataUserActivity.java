@@ -21,6 +21,7 @@ import com.example.Model.SV;
 import com.example.mxh_gdu3.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class InsertDataUserActivity extends AppCompatActivity {
     private Button buttonDongY, buttonHuy;
@@ -58,7 +59,7 @@ public class InsertDataUserActivity extends AppCompatActivity {
             "Luật",
             "Kinh Tế",
     };
-    private EditText editTextHoTen, editTextMSSV, editTextSDT;
+    private MaterialEditText editTextHoTen, editTextMSSV, editTextSDT;
     private InsertDataUser insertDataUser = new InsertDataUser();
     private Spinner spinnerNganhHoc, spinnerLopHoc;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();

@@ -55,42 +55,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerLopHoc"></Button>
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/edtiTextMSSV"
         android:layout_width="@dimen/dp300"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/border"
+        app:met_floatingLabel="normal"
         android:hint="Nhập Mã Số Sinh Viên"
         android:inputType="text"
-        android:minHeight="@dimen/dp20"
-        android:padding="@dimen/dp10"
-        android:paddingLeft="@dimen/dp15"
         android:textSize="@dimen/dp20"
         android:textColor="#f000"
         app:layout_constraintBottom_toTopOf="@+id/editTextHoTen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Appbar"></EditText>
+        app:layout_constraintTop_toBottomOf="@+id/Appbar"></com.rengwuxian.materialedittext.MaterialEditText>
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/editTextHoTen"
         android:layout_width="@dimen/dp300"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/border"
+        app:met_floatingLabel="normal"
         android:hint="Nhập Họ Tên Sinh Viên"
         android:inputType="text"
-        android:minHeight="@dimen/dp20"
-        android:padding="@dimen/dp10"
-        android:paddingLeft="@dimen/dp15"
         android:textColor="#f000"
         app:layout_constraintBottom_toTopOf="@+id/edtiTextSoDienThoai"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtiTextMSSV"></EditText>
+        app:layout_constraintTop_toBottomOf="@+id/edtiTextMSSV"></com.rengwuxian.materialedittext.MaterialEditText>
 
     <TextView
         android:id="@+id/textViewLopHoc"
@@ -113,7 +105,7 @@
         android:id="@+id/spinnerNganhHoc"
         android:layout_width="@dimen/dp300"
         android:layout_height="wrap_content"
-        android:background="@drawable/border"
+
         android:contextClickable="true"
         android:minHeight="@dimen/dp20"
         app:layout_constraintBottom_toTopOf="@+id/textViewLopHoc"
@@ -122,7 +114,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewNganhHoc"></Spinner>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
 
         android:id="@+id/textViewNganhHoc"
         android:layout_width="@dimen/dp300"
@@ -138,32 +130,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtiTextSoDienThoai"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/edtiTextSoDienThoai"></com.google.android.material.textview.MaterialTextView>
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/edtiTextSoDienThoai"
         android:layout_width="@dimen/dp300"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/border"
+        app:met_floatingLabel="normal"
         android:hint="Nhập Số Điện Thoại Sinh Viên"
         android:inputType="text"
-        android:minHeight="@dimen/dp20"
-        android:padding="@dimen/dp10"
-        android:paddingLeft="@dimen/dp15"
         android:textColor="#f000"
         app:layout_constraintBottom_toTopOf="@+id/textViewNganhHoc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextHoTen"></EditText>
+        app:layout_constraintTop_toBottomOf="@+id/editTextHoTen"></com.rengwuxian.materialedittext.MaterialEditText>
 
     <Spinner
         android:id="@+id/spinnerLopHoc"
         android:layout_width="@dimen/dp300"
         android:layout_height="wrap_content"
 
-        android:background="@drawable/border"
         android:contextClickable="true"
         app:layout_constraintBottom_toTopOf="@+id/buttonDongY"
         app:layout_constraintEnd_toEndOf="parent"

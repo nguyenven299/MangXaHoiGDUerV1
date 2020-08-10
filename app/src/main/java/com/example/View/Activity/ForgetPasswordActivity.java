@@ -16,6 +16,7 @@ import com.example.mxh_gdu3.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class ForgetPasswordActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -31,7 +32,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.texticon);
         imageView.setImageResource(R.drawable.logo_gdu);
         textView.setText("Gia Dinh University");
-        final EditText editTextEmail = findViewById(R.id.editTextEmail);
+        final MaterialEditText editTextEmail = findViewById(R.id.editTextEmail);
         Button buttonDongY = findViewById(R.id.buttonDongY);
         Button buttonTroVe = findViewById(R.id.buttonTroVe);
         buttonTroVe.setOnClickListener(new View.OnClickListener() {

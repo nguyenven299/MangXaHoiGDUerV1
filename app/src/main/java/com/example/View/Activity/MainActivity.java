@@ -26,10 +26,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class MainActivity extends AppCompatActivity {
     private Button buttonDangKy, buttonDongY, buttonGuiMa, buttonGuiLaiMa;
-    private EditText editTextEmail, editTextMatKhau;
+    private MaterialEditText editTextEmail, editTextMatKhau;
     private FirebaseUser firebaseUser;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseDatabase firebaseDatabase;

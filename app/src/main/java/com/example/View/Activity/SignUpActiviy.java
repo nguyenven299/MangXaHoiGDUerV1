@@ -25,10 +25,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class SignUpActiviy extends AppCompatActivity {
     private Button buttonDangKy, buttonHuy;
-    private EditText editTextEmail, editTextMatKhau, editTextNhapLaiMatKhau;
+    private MaterialEditText editTextEmail, editTextMatKhau, editTextNhapLaiMatKhau;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private CheckBox checkBox;
 

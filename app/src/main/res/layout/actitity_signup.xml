@@ -39,17 +39,13 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/editTextNhapLaiMatKhau"
         android:layout_width="@dimen/dp300"
-        android:layout_height="@dimen/dp50"
-        android:background="@drawable/border"
-        android:ems="10"
+        android:layout_height="wrap_content"
+        app:met_floatingLabel="normal"
         android:hint="Nhập Lại Mật Khẩu"
         android:inputType="textPassword"
-
-        android:paddingLeft="@dimen/dp15"
-        android:textSize="@dimen/dp20"
         app:layout_constraintBottom_toTopOf="@+id/checkbox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -72,33 +68,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkbox" />
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/editTextMatKhau"
         android:layout_width="@dimen/dp300"
-        android:layout_height="@dimen/dp50"
-        android:background="@drawable/border"
-        android:ems="10"
+        android:layout_height="wrap_content"
+        app:met_floatingLabel="normal"
         android:hint="Nhập Mật Khẩu"
         android:inputType="textPassword"
-
-        android:paddingLeft="@dimen/dp15"
-        android:textSize="@dimen/dp20"
         app:layout_constraintBottom_toTopOf="@+id/editTextNhapLaiMatKhau"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/editTextEmail"
         android:layout_width="@dimen/dp300"
-        android:layout_height="@dimen/dp50"
-        android:background="@drawable/border"
-
-        android:hint="Nhập Email"
+        android:layout_height="wrap_content"
+        android:hint="Email của bạn"
         android:inputType="textEmailAddress"
-        android:paddingLeft="@dimen/dp15"
-        android:textSize="@dimen/dp20"
+        app:met_floatingLabel="normal"
         app:layout_constraintBottom_toTopOf="@+id/editTextMatKhau"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
