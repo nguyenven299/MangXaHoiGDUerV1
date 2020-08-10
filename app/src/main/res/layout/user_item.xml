@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,22 +12,23 @@
         android:layout_width="@dimen/dp50"
         android:layout_height="@dimen/dp50"
 
-        android:layout_marginLeft="@dimen/dp30"
-        android:layout_marginTop="@dimen/dp5"
         app:civ_border_overlay="true"
-    ></de.hdodenhof.circleimageview.CircleImageView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></de.hdodenhof.circleimageview.CircleImageView>
 
     <TextView
         android:id="@+id/textViewHoTen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_toRightOf="@id/AnhDaiDien"
-        android:layout_marginLeft="@dimen/dp50"
-        android:textColor="#F000"
         android:text="username"
+        android:textColor="#F000"
         android:textSize="@dimen/dp18"
-     ></TextView>
+        app:layout_constraintBottom_toBottomOf="@+id/AnhDaiDien"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/AnhDaiDien"
+        app:layout_constraintTop_toTopOf="@+id/AnhDaiDien"></TextView>
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

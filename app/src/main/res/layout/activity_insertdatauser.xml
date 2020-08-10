@@ -119,7 +119,7 @@
         android:id="@+id/textViewNganhHoc"
         android:layout_width="@dimen/dp300"
         android:layout_height="wrap_content"
-        android:background="@drawable/border"
+
         android:minHeight="@dimen/dp20"
         android:padding="@dimen/dp10"
         android:paddingLeft="@dimen/dp15"

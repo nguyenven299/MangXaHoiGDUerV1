@@ -68,12 +68,12 @@ public class NavigationActivity extends AppCompatActivity {
         CheckAccExist.getInstance().CheckAccout(firebaseUser.getUid(), new CheckAccExist.IcheckAccExist() {
             @Override
             public void AccExist(String Exist) {
-                Toast.makeText(getApplication(), Exist, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplication(), Exist, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void AccNull(String Null) {
-                Toast.makeText(getApplication(), Null, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplication(), Null, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplication(), InsertDataUserActivity.class);
                 startActivity(intent);
             }
