@@ -40,11 +40,6 @@ public class ReadDataGV {
                     return;
                 }
                 if (snapshot != null && snapshot.exists()) {
-//                    String Ten = snapshot.getString("Ho_Ten");
-//                    String Hinh_Dai_Dien = snapshot.getString("Anh_Dai_Dien");
-//                    String MSGV = snapshot.getString("MSGV");
-//                    String S_D_T = snapshot.getString("SDT");
-//                    String NganhDay = snapshot.getString("Nganh_Day");
                     GV gv = snapshot.toObject(GV.class);
 
 

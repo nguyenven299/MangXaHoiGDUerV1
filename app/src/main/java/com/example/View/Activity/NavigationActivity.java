@@ -16,6 +16,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.example.Controller.FirebaseFirestore.CheckAccExist;
 import com.example.Controller.FirebaseFirestore.ReadDataGV;
 import com.example.Controller.FirebaseFirestore.ReadDataSV;
+import com.example.Controller.FirebaseRealtime.User.InsertDataUserRealtime;
 import com.example.Model.GV;
 import com.example.Model.SV;
 import com.example.View.UI.ChatFragment;
@@ -58,22 +59,28 @@ public class NavigationActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 //        toolbar.inflateMenu(R.menu.profile_menu);
-        addControls();
+
         HinhDaiDien = findViewById(R.id.imageViewHinhDaiDien);
         HoTen = findViewById(R.id.HoTen);
         DangThongBao = findViewById(R.id.buttonDangThongBao);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        final BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(naListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new HomeFragment()).commit();
         CheckAccExist.getInstance().CheckAccout(firebaseUser.getUid(), new CheckAccExist.IcheckAccExist() {
             @Override
             public void AccExist(String Exist) {
-//                Toast.makeText(getApplication(), Exist, Toast.LENGTH_SHORT).show();
+
+                addControls();
+                InsertDataUserRealtime.getInstance().InserDataUserRealtime( new InsertDataUserRealtime.IinsertDataUser() {
+                    @Override
+                    public int hashCode() {
+                        return super.hashCode();
+                    }
+                });
             }
 
             @Override
             public void AccNull(String Null) {
-//                Toast.makeText(getApplication(), Null, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplication(), InsertDataUserActivity.class);
                 startActivity(intent);
             }
@@ -85,6 +92,7 @@ public class NavigationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener naListener = new BottomNavigationView.OnNavigationItemSelectedListener() {

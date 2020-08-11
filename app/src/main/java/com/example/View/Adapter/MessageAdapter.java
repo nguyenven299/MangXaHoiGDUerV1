@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.Controller.FirebaseRealtime.User.InsertDataUserRealtime;
 import com.example.Model.Chats;
 import com.example.mxh_gdu3.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -93,5 +94,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             show_message = itemView.findViewById(R.id.show_message);
             HinhDaiDien = itemView.findViewById(R.id.HinhDaiDien);
         }
+
     }
 }

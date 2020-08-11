@@ -84,11 +84,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtiTextMSSV"></com.rengwuxian.materialedittext.MaterialEditText>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textViewLopHoc"
         android:layout_width="@dimen/dp300"
         android:layout_height="wrap_content"
-        android:background="@drawable/border"
+
         android:minHeight="@dimen/dp20"
         android:padding="@dimen/dp10"
         android:paddingLeft="@dimen/dp15"
@@ -99,7 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerNganhHoc"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/spinnerNganhHoc"></com.google.android.material.textview.MaterialTextView>
 
     <Spinner
         android:id="@+id/spinnerNganhHoc"

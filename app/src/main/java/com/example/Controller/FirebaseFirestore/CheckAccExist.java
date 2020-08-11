@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import com.example.Model.GV;
 import com.example.Model.SV;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -45,13 +46,31 @@ public class CheckAccExist {
                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                            DocumentSnapshot document = task.getResult();
                                            if (document.exists()) {
-                                               SV sv = document.toObject(SV.class);
-                                               icheckAccExist.AccExist("Chào " +sv.getHo_Ten() );
-                                           } else {
-                                               icheckAccExist.AccNull("Vui Lòng Nhập Đầy Đủ Thông Tin");
+                                               if(task.isSuccessful())
+                                               {
+                                                   if(document.getData().isEmpty())
+                                                   {
+                                                       icheckAccExist.AccNull("Vui Lòng Nhập Đầy Đủ Thông Tin");
+                                                   }
+                                                   else
+                                                   {
+                                                       SV sv = document.toObject(SV.class);
+
+                                                       icheckAccExist.AccExist("Chào " +sv.getHo_Ten() );
+                                                   }
+
+                                               }
+                                               else {
+                                                   icheckAccExist.AccNull("Vui Lòng Nhập Đầy Đủ Thông Tin");
+                                               }
                                            }
                                        }
-                                   });
+                                   }).addOnFailureListener(new OnFailureListener() {
+                               @Override
+                               public void onFailure(@NonNull Exception e) {
+                                   icheckAccExist.AccNull("Vui Lòng Nhập Đầy Đủ Thông Tin");
+                               }
+                           });
                        }
                     }
                 });

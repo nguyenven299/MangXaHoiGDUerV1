@@ -26,18 +26,19 @@ import com.example.Model.SV;
 import com.example.mxh_gdu3.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class UpdateUserActivity extends AppCompatActivity {
-    private TextView textView, textViewNgangHoc, textViewLopHoc;
+    private MaterialTextView textView, textViewNgangHoc, textViewLopHoc;
     private String NganhHoc[] = {
             "",
             "Công Nghệ Thông Tin",
             "Quản Trị Khách Sạn",
-            "Luật",
+            "Ngành Luật",
             "Kinh Tế",
     };
     private String LopHocQTKS[] = {
@@ -133,28 +134,27 @@ public class UpdateUserActivity extends AppCompatActivity {
         });
         ChonNganhHoc();
         HienThiThongTin();
+        ReadDataSV.getInstance().ReadSV(firebaseUser.getUid(), new ReadDataSV.IreadDataSV() {
+            @Override
+            public void onImage(com.example.Model.SV sv) {
+
+            }
+
+            @Override
+            public void onImageNull(com.example.Model.SV sv) {
+
+            }
+
+            @Override
+            public void onSuccess(com.example.Model.SV SV) {
+                spinnerLopHoc.setVisibility(View.VISIBLE);
+                textViewLopHoc.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     private void HienThiThongTin() {
-//        ShowInforSV.getInstance().ShowSV(new ShowInforSV.IshowInforSV() {
-//            @Override
-//            public void onSuccess(SV sv) {
-//                editTextSDT.setText(sv.getSDT());
-//                editTextMSSV.setText(sv.getMSSV());
-//                editTextHoTen.setText(sv.getHo_Ten());
-//            }
-//        });
-//        ShowInforGV.getInstance().ShowGV(new ShowInforGV.IshowInforGV() {
-//            @Override
-//            public void onSuccess(GV gv) {
-//                editTextSDT.setText(gv.getSDT());
-//                editTextMSSV.setText(gv.getMSGV());
-//                editTextHoTen.setText(gv.getHo_Ten());
-//                textViewLopHoc.setVisibility(View.GONE);
-//                spinnerLopHoc.setVisibility(View.GONE);
-//                textViewNgangHoc.setText("Chuyên Ngành");
-//            }
-//        });
+
         ReadDataSV.getInstance().ReadSV(firebaseUser.getUid(), new ReadDataSV.IreadDataSV() {
             @Override
             public void onImage(com.example.Model.SV sv) {

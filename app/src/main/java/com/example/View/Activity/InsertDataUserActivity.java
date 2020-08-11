@@ -56,7 +56,7 @@ public class InsertDataUserActivity extends AppCompatActivity {
             "Chọn Ngành Học",
             "Công Nghệ Thông Tin",
             "Quản Trị Khách Sạn",
-            "Luật",
+            "Ngành Luật",
             "Kinh Tế",
     };
     private MaterialEditText editTextHoTen, editTextMSSV, editTextSDT;
@@ -108,7 +108,7 @@ public class InsertDataUserActivity extends AppCompatActivity {
             }
         });
         ChonNganhHoc();
-
+        Toast.makeText(this, firebaseUser.getEmail(), Toast.LENGTH_SHORT).show();
 
     }
 
@@ -120,7 +120,7 @@ public class InsertDataUserActivity extends AppCompatActivity {
         SV.setNganh_Hoc(nganhHoc);
         SV.setSDT(sdt);
         SV.setEmail(email);
-        InsertDataUser.getInstance().InsertDatabase(SV, new InsertDataUser.IinsertDatabase() {
+        InsertDataUser.getInstance().InsertDatabase(firebaseUser.getUid(),SV, new InsertDataUser.IinsertDatabase() {
             @Override
             public void onSuccess(String Success) {
                 Toast.makeText(InsertDataUserActivity.this, Success, Toast.LENGTH_SHORT).show();

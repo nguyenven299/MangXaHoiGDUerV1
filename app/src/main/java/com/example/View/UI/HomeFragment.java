@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Controller.FirebaseRealtime.SocialNetwork.ReadSocialNetwork;
+import com.example.Controller.FirebaseRealtime.User.InsertDataUserRealtime;
 import com.example.View.Adapter.SocialAdapter;
 import com.example.Model.Social;
 import com.example.mxh_gdu3.R;
@@ -76,6 +77,7 @@ public class HomeFragment extends Fragment {
             }
 
         });
+
         return view;
     }
 

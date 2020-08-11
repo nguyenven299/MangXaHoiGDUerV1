@@ -67,8 +67,10 @@ public class SignUpActiviy extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     editTextMatKhau.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    editTextNhapLaiMatKhau.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                 } else {
                     editTextMatKhau.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    editTextNhapLaiMatKhau.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 }
             }
         });

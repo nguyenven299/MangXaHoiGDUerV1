@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Controller.FirebaseRealtime.Chat.ReadChatList;
+import com.example.Controller.FirebaseRealtime.User.InsertDataUserRealtime;
 import com.example.Controller.FirebaseRealtime.User.ReadDataUserRealtime;
 import com.example.View.Adapter.UserAdapter;
 import com.example.Model.ChatList;
@@ -95,22 +96,34 @@ public class ChatFragment extends Fragment {
 //
 //            }
 //        });
+//        ReadChatList.getInstance().ReadUserChatList(firebaseUser.getUid(), new ReadChatList.IreadChatList() {
+//            @Override
+//            public void onSuccess(ChatList chatList) {
+//                stringList.add(chatList);
+//            }
+//
+//            @Override
+//            public void onFail(String Fail) {
+//
+//            }
+//        });
+
+//        ReadDataUserRealtime.getInstance().ReadDataUser(stringList, firebaseUser.getUid(), new ReadDataUserRealtime.IreadDataUserRealtime() {
+//            @Override
+//            public void onSuccess(List<Users> usersList) {
+//
+//                userAdapter = new UserAdapter(getContext(), usersList);
+//                recyclerView.setAdapter(userAdapter);
+//            }
+//
+//            @Override
+//            public void onFail(String Fail) {
+//
+//            }
+//        });
         ReadChatList.getInstance().ReadUserChatList(firebaseUser.getUid(), new ReadChatList.IreadChatList() {
             @Override
-            public void onSuccess(ChatList chatList) {
-                stringList.add(chatList);
-            }
-
-            @Override
-            public void onFail(String Fail) {
-
-            }
-        });
-
-        ReadDataUserRealtime.getInstance().ReadDataUser(stringList, firebaseUser.getUid(), new ReadDataUserRealtime.IreadDataUserRealtime() {
-            @Override
             public void onSuccess(List<Users> usersList) {
-
                 userAdapter = new UserAdapter(getContext(), usersList);
                 recyclerView.setAdapter(userAdapter);
             }
@@ -118,6 +131,12 @@ public class ChatFragment extends Fragment {
             @Override
             public void onFail(String Fail) {
 
+            }
+        });
+        InsertDataUserRealtime.getInstance().InserDataUserRealtime(new InsertDataUserRealtime.IinsertDataUser() {
+            @Override
+            public int hashCode() {
+                return super.hashCode();
             }
         });
         return view;

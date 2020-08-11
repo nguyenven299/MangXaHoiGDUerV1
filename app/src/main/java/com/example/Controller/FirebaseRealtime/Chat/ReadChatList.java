@@ -5,13 +5,17 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.example.Controller.FirebaseFirestore.CheckAccGVExist;
+import com.example.Controller.FirebaseRealtime.User.ReadDataUserRealtime;
 import com.example.Model.ChatList;
+import com.example.Model.Users;
+import com.example.View.Adapter.UserAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReadChatList {
@@ -25,7 +29,7 @@ public class ReadChatList {
     }
 
     public interface IreadChatList {
-        void onSuccess(ChatList chatList);
+        void onSuccess(List<Users> usersList);
 
         void onFail(String Fail);
     }
@@ -35,11 +39,26 @@ public class ReadChatList {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                List<ChatList> stringList;
+                stringList = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     ChatList chatList = snapshot.getValue(ChatList.class);
-                    ireadChatList.onSuccess(chatList);
+                    stringList.add(chatList);
                 }
+                ReadDataUserRealtime.getInstance().ReadDataUser(stringList, uid, new ReadDataUserRealtime.IreadDataUserRealtime() {
+                    @Override
+                    public void onSuccess(List<Users> usersList) {
+
+//                            userAdapter = new UserAdapter(getContext(), usersList);
+//                            recyclerView.setAdapter(userAdapter);
+                        ireadChatList.onSuccess(usersList);
+                    }
+
+                    @Override
+                    public void onFail(String Fail) {
+
+                    }
+                });
 
             }
 

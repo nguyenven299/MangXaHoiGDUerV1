@@ -47,7 +47,7 @@ public interface IinsertDatabase
 
     }
 
-    public void InsertDatabase(SV SV1, final IinsertDatabase iinsertDatabase) {
+    public void InsertDatabase(String uid,SV SV1, final IinsertDatabase iinsertDatabase) {
 
         Log.d("firebase", "InsertDatabase: ");
 
@@ -59,11 +59,10 @@ public interface IinsertDatabase
         data.put(CARRER, SV1.getNganh_Hoc());
         data.put(CLASS, SV1.getLopHoc());
         data.put(AVATAR,"default");
-        data.put(uid,firebaseUser.getUid());
         data.put(Email,SV1.getEmail());
         data.put("Uid",firebaseUser.getUid());
 
-        firebaseFirestore.collection("SV").document(firebaseUser.getUid()).set(data)
+        firebaseFirestore.collection("SV").document(uid).set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
