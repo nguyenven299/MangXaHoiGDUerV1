@@ -1,6 +1,6 @@
 -- Đồ Án Mạng Xã Hội Đại Học Gia Định --
 
--Thực hiện: Trần Nguyên Vẹn --
+- --Thực hiện: Trần Nguyên Vẹn --
 
 - App áp dụng các tính năng trên nền tảng đám mây Firebase gồm : 
 
@@ -14,7 +14,7 @@
 
 + Firebase Cloud Function dùng để resize ảnh up lên Firebase Cloud Storage.
 
-- Mục tiêu đồ án:
+- -- Mục tiêu đồ án:
 
 +	Giảng viên có thể thông báo về các thay đổi như lịch học, lịch thi, thời gian học….
  
