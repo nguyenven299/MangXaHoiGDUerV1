@@ -24,4 +24,4 @@
  
 +	Sự trao đổi giữa Giảng viên và Sinh viên còn có thể giải phóng sự đam mê trong Sinh viên giúp Sinh viên chọn con đường tốt hơn trong tương lai từ học tập đến việc đi làm sau này.
 
-- Ứng dụng đi kèm với web " https://nguyenven299.github.io/giadinheduMXH.github.io/index " dùng để thêm GV
+- Ứng dụng đi kèm với web " https://github.com/nguyenven299/MangXaHoiGDUerV1.github.io " dùng để thêm GV
